@@ -36,6 +36,10 @@ body {
     font-size: 0.7em
 }
 
+.reveal .right {
+float: right !important;
+}
+
 .reveal {
     font-family: "Source Sans Pro", Helvetica, sans-serif;
     font-size: 42px;

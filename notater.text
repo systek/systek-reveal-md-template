@@ -1,0 +1,134 @@
+# Høyne din kodekvalitet med statisk typing og hissig linting
+
+
+## Kodekvalitet - Hvem bryr se egentlig?
+
+
+Pleide å sitte i egen kodebase. Byttet lite mellom ansvarsområder og ulike repo.
+
+Ble konsulent fikk hyppigere bytte i prosjekter, domener og følgelig kodebaser.
+Etterlater også oftere egen kode til andre.
+Årets julegave fra deg får du tilbake med samme monn: lesbar, forståelig og
+forvaltbar kode.
+
+For å oppnå dette har vi flere verktøy som strukturerer og systematiserer koden din. Men
+allikevell - den viktigste faktoren sitter forran skjermen. DEG!
+
+---
+
+## EcmaScript vs JavaScript
+
+Fra https://medium.freecodecamp.org/whats-the-difference-between-javascript-and-ecmascript-cba48c73a2b5
+
+* “ECMAScript is a standard.”
+* “JavaScript is a standard.”
+* “ECMAScript is a specification.”
+* “JavaScript is an implementation of the ECMAScript standard.”
+* “ECMAScript is standardized JavaScript.”
+* “ECMAScript is a language.”
+* “JavaScript is a dialect of ECMAScript.”
+* “ECMAScript is JavaScript.”
+
+
+## EcmaScript
+ECMA-262 navnet på er en standard som spesifiserer ECMAScript.
+Publisert av Ecma International, første vesjon 1997,  for tiden oppnåd v8 (Juni 2017)
+
+
+## JavaScript
+
+JavaScript er en dialekt av ECMAScript som forsøker å implementer
+spesifikasjonen etter beste evne, men som i noen tilfeller enten ikke makter,
+eller velger å gjøre endringer.
+
+JavaScript tolkes igjen av en motor, som er en "vendor spesific" implementasjon av språket.
+Dette gjør igjen at hver nettleser implementerer sin måte å tolke JavaScript litt forskjellig
+og hver versjon av nettleser har forskjellige ulikheter til standarden(e) de forsøker å støtte.
+I tillegg kommer forbrukerenes even (eller mangel på sådan) til å oppdatere sine klienter
+
+
+## Sukker
+
+https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js
+
+Ikke alle er like happy med å skrive  JavaScript på det formatet som støttes av nettleseren. Derfor er det
+laget et mylder av ulike språk som kan kompileres ned til JavaScript slik at det kan nyttes i nettlesern
+
+Eksempler på slike er
+* CoffeScript
+* LiveScript
+* NodeScript (!= Node.JS)
+* LispyScript
+* ClojureJS/ClojureScript
+* Elm
+* TypeScript
+* Flow
+* ++  mange mange fler
+
+
+For mange er slike språk med på å effektivisere arbeidshverdagen i det man kan
+uttrykke seg mer konsist, eller forståelig eller bygge strukturen i koden etter
+eget hjerte, MEN en kan ikke utrykke noe mer enn i JavaScript ettersom alt
+kompileres ned til JavaScript som igjen tolkes av nettleseren
+
+|
+## Typer
+Enekelte av disse  utviddelsene/ berikelsene tilfører i tillegg til sukker også
+statisk typing til JS . Iblant disse er Flow og TypeScript.
+
+
+This is where TypeScript and Flow differ: TypeScript implements both a type
+checker and a transpiler that emits plain JavaScript. Flow only does type
+checking and relies on Babel or flow-remove-types or some other tool to remove type annotations.
+
+
+
+Angular > TypeScript (java bakgrunn)
+React > Flow
+
+men kan velge selv
+
+
+## Statisk vs dynamisk typing
+
+Statisk typet språk sjekkes ved compile-time mens dynamisk har større frihet til
+å mikse tyer (1 + "2"  = ? )
+
+Dynamsisk typede språk sjekkes først runtime, kræsjer hvis det ikke tas høyde
+for typekonflikter
+
+
+## Fordeler med dynamisk typede språk
+* Mer konsist / mindre verbost
+* Slipper å vente på kompilering > rett i interpreter > instant feedback til
+  utvikler
+* Slipper å bruke tid på å uttrykke seg korrekt - mer fleksibilitet
+* Slipper å refaktorisere hele kodebasen ved typeendringer (men må bruke tid på
+  testing istede)
+* dokumenterer kontrakten med backend. Spesifiserer domeneobjekter
+
+## Fordeler med statisk typede språk
+* Forbedret autofullfør i IDE
+* Økt performance (norsk)
+* Større grad av selvdokumentasjon
+* Forenkler søk i koden - IDEen kan lede deg dirrekte til feks
+  funksjonsdefinisjonen
+* Reduserer uforutsette feil feks brukerinputtvalidering
+
+
+### Typede vs statisk - fordel ved typere
+
+## FLOW
+LOL
+## TypeScript
+LOL
+
+
+---------
+
+## Linting - bli kvitt loen
+Fra WiKi:  lint is a Unix utility that flags some suspicious and non-portable constructs
+Du får
+* forhindrer skjulte feil - det ser riktig ut, men feiler i prod
+*
+* raskere "parsing" / oversikt for utvikler
