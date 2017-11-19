@@ -125,9 +125,9 @@ ESLINT  (industristandard)
 #### Bli kvitt rusket i din kode
 
 ```bash
-npm install -g eslint
-eslint --init
-eslint test.js test2.js
+/git/myRepo $ npm install -g eslint
+/git/myRepo $ eslint --init
+/git/myRepo $ eslint test.js test2.js
 ```
 
 
@@ -148,7 +148,7 @@ Note: eslint --init lager en .eslintrc.js fil for deg
 Du får hjelp av --init til å sette opp en konfig
 
 ```bash
-/git/myRepo[example] $ node node_modules/.bin/eslint --init
+/git/myRepo $ node node_modules/.bin/eslint --init
 ? How would you like to configure ESLint? Use a popular style guide
 ? Which style guide do you want to follow? (Use arrow keys)
 ❯ Google 
@@ -310,7 +310,64 @@ Statisk typesjekker fra FaceBook
 > typically perform to extract semantic information from code.
 > It then uses this information for type inference
 > building on advanced techniques in type theory.
-> <span class="smaller right"> http://localhost:1948/presentasjon.md#/32</smaller>
+> <span class="smaller right">[F Code](https://code.facebook.com/posts/1505962329687926/flow-a-new-static-type-checker-for-javascript/)</smaller>
+
+note:
+Henter ut fordeler uten å miste følelsen av javascript
+Ligger som et lag ovenpå JS 
+kan kjøres i bakgrunnen (-watch)
+Utfører sofistikert programanlyse innenfor kjente idiomer
+
+---
+
+#### Babelify
+
+```bash
+/git/myRepo $ yarn add --dev babel-cli babel-preset-flow
+```
+.babelrc
+```json
+{
+  "presets": ["flow"]
+}
+```
+
+```bash
+/git/myRepo $ yarn run babel src/ -- -d lib/babel -- src/ -d lib/
+/git/myRepo $ yarn add --dev flow-bin
+/git/myRepo $ yarn run flow init
+/git/myRepo $ yarn run flot status
+```
+
+
+---
+
+```javascript
+// @flow
+
+function foo(x: ?number): string {
+  if (x) {
+    return x;
+  }
+  return "default string";
+}
+```
+
+
+---
+
+#### .flowconfig
+
+```yaml
+[include]
+../otherdir/src
+
+[ignore]
+.*/build/.*
+
+[libs]
+./lib
+```
 
 
 ---
