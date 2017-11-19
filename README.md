@@ -8,7 +8,7 @@ Hent ned repet og lag din egen branch
 * npm i
 * npm run start
 
-Se presentasjonen din i [localhost:148](http://localhost:1948/presentasjon.md#)
+Se presentasjonen din i [localhost:1948](http://localhost:1948/presentasjon.md#)
 
 
 Lykke til på med foredraget!
