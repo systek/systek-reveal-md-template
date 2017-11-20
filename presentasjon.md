@@ -229,7 +229,7 @@ Note: begynn i det små og legg til gradvis sterker og sterke regler
 ---
 
 
-<img src="http://localhost:1948/_assets/img/bonzai_kitten.jpg" alt="Bonzai" style="width: 400px; height:300px"/>
+<img src="http://localhost:1948/_assets/img/bonzai_kitten.jpg" alt="Bonzai" style="width: 500px; height:500px"/>
 
 
 ---
@@ -372,15 +372,82 @@ function foo(x: ?number): string {
 
 ---
 
--------------------
-LOL
 ## TypeScript
-LOL
+
+Note: uteviklet av Microsoft
+
+---
+
+> Typescript is a typed superset of JavaScript that compiles to plain
+> JavaScript
+> <span class="smaller right">[typescript.org](https://www.typescriptlang.org/)</smaller>
 
 
-This is where TypeScript and Flow differ: TypeScript implements both a type
+note: This is where TypeScript and Flow differ: TypeScript implements both a type
 checker and a transpiler that emits plain JavaScript. Flow only does type
 checking and relies on Babel or flow-remove-types or some other tool to remove type annotations.
+
+
+---
+
+```bash
+/git/myRepo $ npm install typescript
+/git/myRepo $./node_modules/.bin/tsc hellovoid.ts
+```
+note: ekstremt lett å komme i gang
+objektorientering i ryggmargen - mye java
+
+---
+
+* interfaces
+
+
+
+note:
+
+domene-objekter. Ofte ikke beskrevet andre steder, sette opp kontrakt med backend på hvordan 
+---
+
+
+### Stram til løkka
+
+* strictNullChecks
+* noImplicitAny
+* allowJs
+* alwaysStrict
+
+<span class="smaller right">[Compiler Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)</smaller>
+
+
+note:
+strictNullChecks flag fixes this: when you declare a variable, it doesn’t automatically include null or undefined. You can include them explicitly using a union type:
+noImplicitAny Raise error on expressions and declarations with an implied any type.
+
+---
+
+# Nøkkelfaktor
+
+---
+
+<img src="http://localhost:1948/_assets/img/wantyou.png" alt="You!" style="width: 400px; height:500px; border: none;"/>
+
+note:
+* vær nøye
+* vis arbeidsstoltet
+* gled deg til jul
+
+
+---
+
+## Takk for oppmerksomheten
+
+---
+
+-------------------
+
+
+
+
 
 ---
 
