@@ -113,10 +113,10 @@ Note: Utviklet av Stephen C. Johnson hos Bell Labs for sjekk av C-kode. Senere
 
 #### Linting i JavaScript
 
-* JSLint - 2002 - Douglas Crockford. Sjekker om JS-kode følger kodereglene 
-* JSHint - 2010 - Anton Kovalyov. Fork av JSLint for bedre tilpassing av reglene 
-* ESLint - 2013 - Nicholas C. Zakas. Laget for at utivklere skal kunne lage engne regler til koden 
-* TSLint - 2015 - Palantir Technologies. Linting for TypeScript
+* **JSLint** (2002) Douglas Crockford. Sjekker om JS-kode følger kodereglene 
+* **JSHint** (2010) Anton Kovalyov. Fork av JSLint for bedre tilpassing av reglene 
+* **ESLint** (2013) Nicholas C. Zakas. Laget for at utviklere skal kunne lage engne regler til koden 
+* **TSLint** (2015) Palantir Technologies. Linting for TypeScript
 
 Note: >>>
 
@@ -445,7 +445,7 @@ Error: src/error.js:5
 
 ---
 
-#### .flowconfig
+.flowconfig
 
 ```yaml
 [include]
@@ -561,7 +561,7 @@ note: også veldig god innebygget støtte i Vistual Studio Code
 
 ---
 
-### .tsconfig.json
+.tsconfig.json
 
 ```json
 {
@@ -635,7 +635,7 @@ Enabling --strict enables --noImplicitAny, --noImplicitThis, --alwaysStrict, --s
 * TypeScript er en kompilator, Flow er en sjekker
 * Flow har bedre sunnhetsforståelse (ungå run-time-feil)
 * TypeScript har bedre tooling
-* Flow behver man i liten grad å skrive om koden 
+* Flow trenger i liten grad å skrive om koden 
 
 note: Angular > TypeScript (java bakgrunn)
 React > Flow
