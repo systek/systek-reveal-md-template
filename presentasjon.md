@@ -13,3 +13,9 @@ Med bilde-eksempel
 Skriv MARKDOWN beskrevt hos
 * [reveal-md](https://github.com/webpro/reveal-md)
 * [Markdown-Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+
+----
+
+
+nedoverting
