@@ -57,16 +57,8 @@ Note: hvis man tar i bruk noen enkle teknikker venter en belønning i andre ende
 #### Lesbar, forståelig  og forvaltbar kode
 
 Note: år du i år tilbake med samme monn:
-
----
-
-So, look at Atomic Kitten!
-
-<img src="http://localhost:1948/_assets/img/atomic_kitten.jpg" alt="Lady og Landstrykeren" style="width: 400px; height:300px"/>
-
-Note: Hovrdan  forbedre kodekvalitet?
-
-Ulike virkemidler
+    Hvordan  forbedre kodekvalitet?
+    Ulike virkemidler
 
 Først: Linting
 
@@ -233,12 +225,6 @@ Note: begynn i det små og legg til gradvis sterker og sterke regler
 ---
 
 <img src="http://localhost:1948/_assets/img/Hangman_game.png" alt="HangManStyle" style="width: 400px; height:300px"/>
-
-
----
-
-<img src="http://localhost:1948/_assets/img/bonzai_kitten.jpg" alt="Bonzai" style="width: 500px; height:500px"/>
-
 
 ---
 
