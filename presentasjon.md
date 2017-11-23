@@ -48,11 +48,11 @@ Note: hvis man tar i bruk noen enkle teknikker venter en belønning i andre ende
 
 ### Årets julegave til dine kolleger
 
----
+----
 
 ### Årets julegave til deg selv:
 
----
+----
 
 #### Lesbar, forståelig  og forvaltbar kode
 
@@ -71,11 +71,11 @@ Først: Linting
 [![LINT FLAGG](http://localhost:1948/_assets/img/600px-Flag_of_Lint.svg.png)](http://localhost:1948/_assets/600px-Flag_of_Lint.svg.png)
 
 
----
+----
 
 Lint er en kommune i den belgiske provinsen Antwerpen. 
 
----
+----
 
 _Oxford Dictionary_
 
@@ -86,13 +86,13 @@ _Oxford Dictionary_
 note:
 Korte fine fibre som adskilles fra  tøystykke  under bearbeiding.
 
----
+----
 
 #### På godt norsk:
 
 ## LO!
 
----
+----
 
 #### I vår verden:
 
@@ -101,7 +101,7 @@ _Statisk analyse av kildekode for å detektere brudd på definerte regler_
 Note: Utviklet av Stephen C. Johnson hos Bell Labs for sjekk av C-kode. Senere
  som del av  Unix operating system  1979
 
----
+----
 
 #### Linting i JavaScript
 
@@ -118,7 +118,7 @@ JSHINT  A command-line version of JSHint, distributed as a Node.js module,
 ESLINT  (industristandard). Angir i config hvilke ES-versjon man bruker
 TSLINT  bygger på ESLINT men tilpasset typescript
 
----
+----
 
 #### Bli kvitt rusket i din kode
 
@@ -129,7 +129,7 @@ TSLINT  bygger på ESLINT men tilpasset typescript
 ```
 
 
----
+----
 
 #### Eller som del av bygget
 
@@ -139,7 +139,7 @@ npm run test
 
 Note: eslint --init lager en .eslintrc.js fil for deg 
 
----
+----
 
 Du får hjelp av --init til å sette opp en konfig
 
@@ -153,7 +153,7 @@ Du får hjelp av --init til å sette opp en konfig
 ```
 
 
----
+----
 
 Eller lage din egen fra scratch
 
@@ -185,13 +185,13 @@ module.exports = {
 ```
 
 
----
+----
 
 
 ## Strategi
 
 
----
+----
 
 #### Nytt repo
 
@@ -206,7 +206,7 @@ blir det ikke så smertefult å følge de, til tider strenge reglene
 
 mulig å override med rules tilpasset egen kode
 
----
+----
 
 #### Eksisternede kode
 
@@ -222,7 +222,7 @@ mulig å override med rules tilpasset egen kode
 
 Note: begynn i det små og legg til gradvis sterker og sterke regler
 
----
+----
 
 <img src="http://localhost:1948/_assets/img/Hangman_game.png" alt="HangManStyle" style="width: 400px; height:300px"/>
 
@@ -238,7 +238,7 @@ i språket som gjør det vanskelig å strukturere og organisere for mange utvikl
 Ikke alle trives med å skrive JavaScript etter standarden, slik det støttes av nettleseren. Derfor er det kommet
 opp et  mylder av ulike språk som kan kompileres ned til JavaScript slik at det kan nyttes i nettlesern
 
----
+----
 
 * CoffeScript
 * LiveScript
@@ -258,7 +258,7 @@ eget hjerte, MEN en kan ikke utrykke noe mer enn i JavaScript ettersom alt
 kompileres ned til JavaScript som igjen tolkes av nettleseren
 
 
----
+----
 
 ## Statisk vs dynamisk typing
 
@@ -280,13 +280,13 @@ Her ser vi noen hovedforskjeller mellom statis og dynamiske språl
 * 
 
 
----
+----
 
 ## Fordeler med statisk typede språk
 
 note: hvorfor ønsker vi å tilføre kompleksistet til språkvet ved statisk typing
 
----
+----
 
 * Forbedret autofullfør i IDE
 * Større grad av selvdokumentasjon
@@ -300,11 +300,12 @@ VI SKAL SE PÅ TO ULIKE TILNÆRMINGER TIL STATISK TYPING I JAVASCRIPT
 
 ---
 
-## FLOW 
+<img src="http://localhost:1948/_assets/img/flow_logo.png" alt="Flow!" style="width: 200px; height:200pxpx; border: none;"/>
+
 
 <p class="smaller">Statisk typesjekker fra FaceBook</p>
 
----
+----
 
 > Flow employs the kind of data-flow and control-flow analysis that compilers
 > typically perform to extract semantic information from code.
@@ -319,14 +320,14 @@ kan kjøres i bakgrunnen (-watch)
 Utfører sofistikert programanlyse innenfor kjente idiomer
 ikke en kompilater men en sjekker
 
----
+----
 
 ### Type inference
 
 >Using data flow analysis, Flow infers types and tracks data as it moves through your code.
 >You don't need to fully annotate your code before Flow can start to find bugs.
 
----
+----
 
 ```javascript
 // @flow
@@ -338,7 +339,7 @@ concat("A", "B");
 concat(1, 2); 
 ```
 
----
+----
 
 ### Type annotasjon 
 
@@ -354,7 +355,7 @@ concat(1, 2); // Error!
 
 note: i noen tilfeller ønsker man å spesifisere typene for å garantere oppførsel til funksjonen
 
----
+----
 
 
 ### Typer
@@ -368,7 +369,7 @@ note: i noen tilfeller ønsker man å spesifisere typene for å garantere oppfø
 * ...
 
 
----
+----
 
 ### Støtter non-nullable
 
@@ -383,7 +384,7 @@ function foo(num: number): string {
 }
 ```
 
----
+----
 
 #### Babelify
 
@@ -405,7 +406,7 @@ function foo(num: number): string {
 ```
 
 
----
+----
 
 ```javascript
 // @flow
@@ -419,7 +420,7 @@ function foo(x: ?number): string {
 ```
 
 
----
+----
 
 ```bash
 Error: src/error.js:5
@@ -429,7 +430,7 @@ Error: src/error.js:5
                                ^^^^^^ string
 ```
 
----
+----
 
 .flowconfig
 
@@ -453,7 +454,7 @@ Error: src/error.js:5
 note:
 lints: regler for flow-linting
 
----
+----
 
  Bruk options-feltet til å stramme til løkka
 
@@ -462,8 +463,9 @@ lints: regler for flow-linting
 
 ---
 
-## TypeScript
-
+<p style="background-color:#294E80; width: 200px; height: 150px; margin: auto">
+<img src="http://localhost:1948/_assets/img/typescript_logo.svg" alt="Flow!" style="width: 200px; height:150px; border: none; margin: 0; padding: 8px"/>
+</p>
 
 > Typescript is a typed superset of JavaScript that compiles to plain
 > JavaScript<br />
@@ -483,7 +485,7 @@ Sentral forskjell mellom TS og Flow. For få flow-kode til å kjøre må annotas
 (av feks Babel)  TypeScript, derimot, implementerer både en type-sjekker og en trasnspiler som spytter ut
 kjørbar javascript.
 
----
+----
 
 ###  Inference & annotasjoner 
 
@@ -497,7 +499,7 @@ let d = c + b; // Operator '+' cannot be applied to types 'number' and 'false'.
 note: disse kan også inferece av kompilator
 man bygger også mer komlekse typer vha Class eller json-implementasjoner av interfaces
 
----
+----
 
 ### Typer
 
@@ -507,7 +509,7 @@ I likhet til Flow et rikt utvalg av typer og feature
 
 Typer er  nullable (må nullsjekkes)
 
----
+----
 
 ### Komme igang
 
@@ -518,7 +520,7 @@ Typer er  nullable (må nullsjekkes)
 note: ekstremt lett å komme i gang
 objektorientering i ryggmargen - mye java
 
----
+----
 
 hellovoid.ts
 
@@ -533,7 +535,7 @@ let user = [0, 1, 2];
 document.body.innerHTML = greeter(user);
 ```
 
----
+----
 
 ```bash
 /git/myRepo $  node_modules/.bin/tsc hellovoid.ts 
@@ -545,7 +547,7 @@ to parameter of type 'string'.
 
 note: også veldig god innebygget støtte i Vistual Studio Code
 
----
+----
 
 .tsconfig.json
 
@@ -582,7 +584,7 @@ reoveComments Remove all comments except copy-right header comments beginning wi
 preserveConstEnums: Do not erase const enum declarations in generated code. See const enums documentation for more details.
 ....
 
----
+----
 
 ### Stram til løkka
 
