@@ -12,3 +12,10 @@ Se presentasjonen din i [localhost:1948](http://localhost:1948/presentasjon.md#)
 
 
 Lykke til på med foredraget!
+
+
+
+
+## //TODO
+
+lage en _start.cmd_ for windows entusiaster
