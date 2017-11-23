@@ -10,8 +10,8 @@
 
 
 * Pleide sitte som herre i egen borg
-* global.js &lt; 500 l. kode
-* Moderne applikasjon &gt; 10 000 l. kode javascript
+* global.js < 500 l. kode
+* Moderne applikasjon >  10 000 l. kode javascript
 * Konsulenttilværelse - oftere bytte
 * Ettermæle
 
@@ -35,7 +35,7 @@ Note: vokser ut av proposjoner
 
 <img src="http://localhost:1948/_assets/img/nissegrot_pasta.jpg" alt="Nissegrøt pasta" style="width: 400px; height:300px"/>
 
-Note: Fort gjor tå ende opp med spaghettikode - upassende julegave
+Note: Fort gjor tå ende opp med spaghettikode - upassende mat for nissen. Gretten nisse.......
 
 ---
 
@@ -60,7 +60,7 @@ Note: år du i år tilbake med samme monn:
 
 ---
 
-Now, look at the Atomic Kitten!
+So, look at Atomic Kitten!
 
 <img src="http://localhost:1948/_assets/img/atomic_kitten.jpg" alt="Lady og Landstrykeren" style="width: 400px; height:300px"/>
 
@@ -91,6 +91,9 @@ _Oxford Dictionary_
 >‘some fabrics leave tiny specks of lint on the glass’
 
 
+note:
+Korte fine fibre som adskilles fra  tøystykke  under bearbeiding.
+
 ---
 
 #### På godt norsk:
@@ -103,6 +106,8 @@ _Oxford Dictionary_
 
 _Statisk analyse av kildekode for å detektere brudd på definerte regler_
 
+Note: Utviklet av Stephen C. Johnson hos Bell Labs for sjekk av C-kode. Senere
+ som del av  Unix operating system  1979
 
 ---
 
@@ -116,9 +121,10 @@ _Statisk analyse av kildekode for å detektere brudd på definerte regler_
 Note: >>>
 
 JSLINT  Først og fremst online verktøy ibrowser. nå også som cli 
-JSHINT A command-line version of JSHint, distributed as a Node.js module,
+JSHINT  A command-line version of JSHint, distributed as a Node.js module,
         makes it possible to automate one's linting process and integrate JSHint into a project's development workflow.
-ESLINT  (industristandard)
+ESLINT  (industristandard). Angir i config hvilke ES-versjon man bruker
+TSLINT  bygger på ESLINT men tilpasset typescript
 
 ---
 
@@ -139,11 +145,9 @@ ESLINT  (industristandard)
 npm run test
 ```
 
-
 Note: eslint --init lager en .eslintrc.js fil for deg 
 
 ---
-
 
 Du får hjelp av --init til å sette opp en konfig
 
@@ -205,6 +209,11 @@ module.exports = {
 }
 ```
 
+note: anbefaler å benytte en av standardende fra eslint. Hvis man gjør det allerede i fra begynnelsen
+blir det ikke så smertefult å følge de, til tider strenge reglene
+
+mulig å override med rules tilpasset egen kode
+
 ---
 
 #### Eksisternede kode
@@ -223,27 +232,25 @@ Note: begynn i det små og legg til gradvis sterker og sterke regler
 
 ---
 
-
 <img src="http://localhost:1948/_assets/img/Hangman_game.png" alt="HangManStyle" style="width: 400px; height:300px"/>
 
----
 
+---
 
 <img src="http://localhost:1948/_assets/img/bonzai_kitten.jpg" alt="Bonzai" style="width: 500px; height:500px"/>
 
 
 ---
 
-
 # JavaScript / EcmaScript
-
-
 ### Syntaks - Sukker - Sirup
 
 Note: 
-
-_Ikke alle er like happy med å skrive  JavaScript på det formatet som støttes av nettleseren. Derfor er det
-laget et mylder av ulike språk som kan kompileres ned til JavaScript slik at det kan nyttes i nettlesern_
+Som nevnt ble ikke JS skrevet med hennblikk på å lage store single-page applikasjoner. Ttf kraftig
+endringer av språket fra første versjon i 1997 til dagens v2017, finnes det fortsatt grunnleggende egenskaper
+i språket som gjør det vanskelig å strukturere og organisere for mange utviklere, 
+Ikke alle trives med å skrive JavaScript etter standarden, slik det støttes av nettleseren. Derfor er det kommet
+opp et  mylder av ulike språk som kan kompileres ned til JavaScript slik at det kan nyttes i nettlesern
 
 ---
 
@@ -271,29 +278,36 @@ kompileres ned til JavaScript som igjen tolkes av nettleseren
 
 * Statisk typede språk:  variabeltyper sjekkes compile-time
 * Dynamsisk typede språk:  sjekkes først runtime
-* * større frihet til å mikse tyer 
+* * større frihet til å mikse typer 
 * * kræsjer hvis det ikke tas høyde for typekonflikter
 
 note:
+Her ser vi noen hovedforskjeller mellom statis og dynamiske språl
+
 # Fordeler med dynamisk typede språk
 * Mer konsist / mindre verbost
-* Slipper å vente på kompilering > rett i interpreter > instant feedback til
+* Slipper å vente på kompilering > rett i interpreter > umiddelbar feedback til
   utvikler
 * Slipper å bruke tid på å uttrykke seg korrekt - mer fleksibilitet
 * Slipper å refaktorisere hele kodebasen ved typeendringer (men må bruke tid på
   testing istede)
-* dokumenterer kontrakten med backend. Spesifiserer domeneobjekter
+* 
 
 
 ---
 
-#### Fordeler med statisk typede språk
+## Fordeler med statisk typede språk
+
+note: hvorfor ønsker vi å tilføre kompleksistet til språkvet ved statisk typing
+
+---
+
 * Forbedret autofullfør i IDE
 * Større grad av selvdokumentasjon
 * Forenkler søk i koden - IDEen kan lede deg dirrekte til feks
   funksjonsdefinisjonen
 * Reduserer uforutsette feil feks brukerinputtvalidering
-
+* Dokumenterer kontrakten med backend. Spesifiserer domeneobjekter
 
 Note:
 VI SKAL SE PÅ TO ULIKE TILNÆRMINGER TIL STATISK TYPING I JAVASCRIPT
@@ -302,7 +316,7 @@ VI SKAL SE PÅ TO ULIKE TILNÆRMINGER TIL STATISK TYPING I JAVASCRIPT
 
 ## FLOW 
 
-Statisk typesjekker fra FaceBook
+<p class="smaller">Statisk typesjekker fra FaceBook</p>
 
 ---
 
@@ -317,6 +331,71 @@ Henter ut fordeler uten å miste følelsen av javascript
 Ligger som et lag ovenpå JS 
 kan kjøres i bakgrunnen (-watch)
 Utfører sofistikert programanlyse innenfor kjente idiomer
+ikke en kompilater men en sjekker
+
+---
+
+### Type inference
+
+>Using data flow analysis, Flow infers types and tracks data as it moves through your code.
+>You don't need to fully annotate your code before Flow can start to find bugs.
+
+---
+
+```javascript
+// @flow
+function concat(a, b) {
+  return a + b;
+}
+
+concat("A", "B"); 
+concat(1, 2); 
+```
+
+---
+
+### Type annotasjon 
+
+```javascript
+// @flow
+function concat(a: string, b: string) {
+  return a + b;
+}
+
+concat("A", "B"); // Works!
+concat(1, 2); // Error!
+```
+
+note: i noen tilfeller ønsker man å spesifisere typene for å garantere oppførsel til funksjonen
+
+---
+
+
+### Typer
+
+<p class="smaller">Rikt utvalg av typer og språklige features :</p>
+
+* primitive typer
+* klasser med arv
+* Enum
+* Generics
+* ...
+
+
+---
+
+### Støtter non-nullable
+
+sjekkeren gir feilmelding når man forsøker å bruke en verdi som kan være null
+
+```javascript
+// error: return undefined. This type is incompatible with string
+function foo(num: number): string {
+	if (num > 10) {
+		return 'cool';
+	}
+}
+```
 
 ---
 
@@ -333,10 +412,10 @@ Utfører sofistikert programanlyse innenfor kjente idiomer
 ```
 
 ```bash
-/git/myRepo $ yarn run babel src/ -- -d lib/babel -- src/ -d lib/
+/git/myRepo $ yarn run babel src/
 /git/myRepo $ yarn add --dev flow-bin
 /git/myRepo $ yarn run flow init
-/git/myRepo $ yarn run flot status
+/git/myRepo $ yarn run flow status
 ```
 
 
@@ -356,6 +435,16 @@ function foo(x: ?number): string {
 
 ---
 
+```bash
+Error: src/error.js:5
+  5:     return x;
+                ^ number. This type is incompatible with the expected return type of
+  3: function foo(x: ?number): string {
+                               ^^^^^^ string
+```
+
+---
+
 #### .flowconfig
 
 ```yaml
@@ -367,28 +456,74 @@ function foo(x: ?number): string {
 
 [libs]
 ./lib
+
+[lints]
+[options]
+
+[version]
 ```
 
+
+note:
+lints: regler for flow-linting
+
+---
+
+ Bruk options-feltet til å stramme til løkka
+
+* use_strict=true
+* suppress_type='anyother'
 
 ---
 
 ## TypeScript
 
-Note: uteviklet av Microsoft
-
----
 
 > Typescript is a typed superset of JavaScript that compiles to plain
-> JavaScript
+> JavaScript<br />
 > <span class="smaller right">[typescript.org](https://www.typescriptlang.org/)</smaller>
 
+<p class="smaller">Utviklet av Microsoft</p>
 
-note: This is where TypeScript and Flow differ: TypeScript implements both a type
-checker and a transpiler that emits plain JavaScript. Flow only does type
-checking and relies on Babel or flow-remove-types or some other tool to remove type annotations.
 
+note:
+
+Baserer seg på ES6 (men videreutvikles mot ES7/8)
+Basserer seg på  annotasjoner i koden - men har også innebygget inference
+kompileres for å sjekke koden og fjerne annotasjonene 
+
+
+Sentral forskjell mellom TS og Flow. For få flow-kode til å kjøre må annotasjonen fjernes
+(av feks Babel)  TypeScript, derimot, implementerer både en type-sjekker og en trasnspiler som spytter ut
+kjørbar javascript.
 
 ---
+
+###  Inference & annotasjoner 
+
+```javascript
+let a: string = 'Hello';
+let b: number = 22;
+let c = false;
+let d = c + b; // Operator '+' cannot be applied to types 'number' and 'false'.
+```
+
+note: disse kan også inferece av kompilator
+man bygger også mer komlekse typer vha Class eller json-implementasjoner av interfaces
+
+---
+
+### Typer
+
+I likhet til Flow et rikt utvalg av typer og feature
+
+<p class="smaller">men</p>
+
+Typer er  nullable (må nullsjekkes)
+
+---
+
+### Komme igang
 
 ```bash
 /git/myRepo $ npm install typescript
@@ -399,15 +534,69 @@ objektorientering i ryggmargen - mye java
 
 ---
 
-* interfaces
+hellovoid.ts
 
 
+```javascript
+function greeter(person: string) {
+    return "Hello, " + person;
+}
 
-note:
+let user = [0, 1, 2];
 
-domene-objekter. Ofte ikke beskrevet andre steder, sette opp kontrakt med backend på hvordan 
+document.body.innerHTML = greeter(user);
+```
+
 ---
 
+```bash
+/git/myRepo $  node_modules/.bin/tsc hellovoid.ts 
+src/test.ts(7,35): error TS2345:
+Argument of type 'number[]' is not assignable
+to parameter of type 'string'.
+```
+
+
+note: også veldig god innebygget støtte i Vistual Studio Code
+
+---
+
+### .tsconfig.json
+
+```json
+{
+    "compilerOptions": {
+        "module": "system",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "outFile": "../../built/local/tsc.js",
+        "sourceMap": true
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+```
+
+
+note: // kan skippes
+
+module: pecify module code generation: "None", "CommonJS", "AMD", "System", "UMD", "ES6", "ES2015" or "ESNext".
+► Only "AMD" and "System" can be used in conjunction with --outFile.
+► "ES6" and "ES2015" values may be used when targeting "ES5" or lower.
+
+noImplicitAny:	Raise error on expressions and declarations with an implied any type.
+
+reoveComments Remove all comments except copy-right header comments beginning with /*!
+
+preserveConstEnums: Do not erase const enum declarations in generated code. See const enums documentation for more details.
+....
+
+---
 
 ### Stram til løkka
 
@@ -419,9 +608,41 @@ domene-objekter. Ofte ikke beskrevet andre steder, sette opp kontrakt med backen
 <span class="smaller right">[Compiler Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)</smaller>
 
 
+ --strict
+
 note:
+
 strictNullChecks flag fixes this: when you declare a variable, it doesn’t automatically include null or undefined. You can include them explicitly using a union type:
-noImplicitAny Raise error on expressions and declarations with an implied any type.
+
+noImplicitAny:  Raise error on expressions and declarations with an implied any type.
+
+alwaysStrict:   "use strict"
+
+allowJs : tillate .js-filer å kjøre (som js)
+
+--strict: Enable all strict type checking options. 
+Enabling --strict enables --noImplicitAny, --noImplicitThis, --alwaysStrict, --strictNullChecks and --strictFunctionTyp
+
+---
+
+### Flow vs TypeScript
+
+
+* Får kontroll over typer og struktur i kode
+* Lett å opte inn i eksisterende kode
+* TypeScript and Flow har sett mye til hverandre
+* Begge suporterer React, Angular mv
+* TypeScript er en kompilator, Flow er en sjekker
+* Flow har bedre sunnhetsforståelse (ungå run-time-feil)
+* TypeScript har bedre tooling
+* Flow behver man i liten grad å skrive om koden 
+
+note: Angular > TypeScript (java bakgrunn)
+React > Flow
+
+lagt opp i eksempler, tutorials og boilerplates
+
+men kan velge selv
 
 ---
 
@@ -434,6 +655,7 @@ noImplicitAny Raise error on expressions and declarations with an implied any ty
 note:
 * vær nøye
 * vis arbeidsstoltet
+* husk at det er andre som skal jobbe videre på koden når du har reist
 * gled deg til jul
 
 
@@ -441,76 +663,14 @@ note:
 
 ## Takk for oppmerksomheten
 
----
 
--------------------
-
-
-
-
+<img src="http://localhost:1948/_assets/img/happy_santa.jpg" alt="Happy Santa!" style="width: 400px; height:300px;"/>
 
 ---
 
-
-Angular > TypeScript (java bakgrunn)
-React > Flow
-
-men kan velge selv
-
-
-
+*https://flow.org/en/
+*https://www.typescriptlang.org/index.html
+*https://djcordhose.github.io/flow-vs-typescript/2016_hhjs.html
 
 ---
-
-
----
-
-# END
-
----
-
---------------------------------
-
-## EcmaScript vs JavaScript
-
-
-* “ECMAScript is a standard.”
-* “JavaScript is a standard.”
-* “ECMAScript is a specification.”
-* “JavaScript is an implementation of the ECMAScript standard.”
-* “ECMAScript is standardized JavaScript.”
-* “ECMAScript is a language.”
-* “JavaScript is a dialect of ECMAScript.”
-* “ECMAScript is JavaScript.”
-
-( https://medium.freecodecamp.org/whats-the-difference-between-javascript-and-ecmascript-cba48c73a2b5)
-
----
-
-## EcmaScript
-ECMA-262 navnet på er en standard som spesifiserer ECMAScript.
-Publisert av Ecma International, første vesjon 1997,  for tiden oppnåd v8 (Juni 2017)
-
-
-## JavaScript
-
-JavaScript er en dialekt av ECMAScript som forsøker å implementer
-spesifikasjonen etter beste evne, men som i noen tilfeller enten ikke makter,
-eller velger å gjøre endringer.
-
-JavaScript tolkes igjen av en motor, som er en "vendor spesific" implementasjon av språket.
-Dette gjør igjen at hver nettleser implementerer sin måte å tolke JavaScript litt forskjellig
-og hver versjon av nettleser har forskjellige ulikheter til standarden(e) de forsøker å støtte.
-I tillegg kommer forbrukerenes even (eller mangel på sådan) til å oppdatere sine klienter
-
-
-
-For mange er slike språk med på å effektivisere arbeidshverdagen i det man kan
-uttrykke seg mer konsist, eller forståelig eller bygge strukturen i koden etter
-eget hjerte, MEN en kan ikke utrykke noe mer enn i JavaScript ettersom alt
-kompileres ned til JavaScript som igjen tolkes av nettleseren
-
-|
-
-
 
