@@ -1,3 +1,14 @@
+## // TODO
+
+* stramme inn enda mer - færre foiler
+* typos
+* hva nå - kikke litt inn i kodekvalitet-fremtiden (som overgang til Håvard)
+* webassembly ???
+
+
+
+---
+
 # SYSTEK
 
 ### Høyne din kodekvalitet med statisk typing og hissig linting
