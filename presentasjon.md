@@ -6,6 +6,19 @@
 * webassembly ???
 
 
+* Morsom forhistore
+* Bra innhold
+* Litt mange slides. Litt mye blafring.
+* Må forbedre slidesettet litt
+* Bør bruke større bilder(fullskjerm?). Foto av høy kvalitet!
+* Hva er budskapet? Hva ønsker du å formidle..
+* Litt mer energi
+* Finnes det andre typer statiske typede javascript?
+* Går over tiden!
+* Det er noe med formatet på å vise kode
+* Litt mer overordnet før man dypdykker
+* Løsrive seg fra manus
+
 
 ---
 
