@@ -30,8 +30,7 @@
 
 ### Kodekvalitet - Hvem bryr seg egentlig?
 
----
-
+note: 
 
 * Pleide sitte som herre i egen borg
 * global.js < 500 l. kode
@@ -43,19 +42,22 @@
 
 ### JavaScript
 
-* Laget med henblikk på validering av forms
+* Skapt for å  validere forms
+* Event-basert
 * Dynamisk typet 
 * Utviklet til å støtte moderne behov:
   <span class="smaller">ES5, ES6, ES2016, ES2017... </span>
-* jQoery, Lodash, Vue, Ember, Angular, React, Elm
+* jQuery, Lodash, Vue, Ember, Angular, React, Elm
 
 ---
 
-<img src="http://localhost:1948/_assets/img/pizzabonanza.png" alt="Pizza" style="width: 400px; height:300px"/>
+<img src="http://localhost:1948/_assets/img/pizzabonanza.png" alt="Pizza" style="width: 100%; height:90%"/>
 
 Note: vokser ut av proposjoner
 
 ---
+
+note:
 
 <img src="http://localhost:1948/_assets/img/nissegrot_pasta.jpg" alt="Nissegrøt pasta" style="width: 400px; height:300px"/>
 
@@ -63,7 +65,7 @@ Note: Fort gjor tå ende opp med spaghettikode - upassende mat for nissen. Grett
 
 ---
 
-<img src="http://localhost:1948/_assets/img/lady_landstryker.jpg" alt="Lady og Landstrykeren" style="width: 400px; height:300px"/>
+<img src="http://localhost:1948/_assets/img/lady_landstryker.jpg" alt="Lady og Landstrykeren" style="width: 100%; height:85%"/>
 
 
 Note: hvis man tar i bruk noen enkle teknikker venter en belønning i andre enden
@@ -90,14 +92,12 @@ Først: Linting
 
 ## Lint - hva er det?
 
----
+----
+
+En kommune i den belgiske provinsen Antwerpen.
 
 [![LINT FLAGG](http://localhost:1948/_assets/img/600px-Flag_of_Lint.svg.png)](http://localhost:1948/_assets/600px-Flag_of_Lint.svg.png)
 
-
-----
-
-Lint er en kommune i den belgiske provinsen Antwerpen. 
 
 ----
 
@@ -152,20 +152,14 @@ TSLINT  bygger på ESLINT men tilpasset typescript
 /git/myRepo $ eslint test.js test2.js
 ```
 
+note:  Eller som del av bygget
+
+
+eslint --init lager en .eslintrc.js fil for deg 
 
 ----
 
-#### Eller som del av bygget
-
-```bash
-npm run test
-```
-
-Note: eslint --init lager en .eslintrc.js fil for deg 
-
-----
-
-Du får hjelp av --init til å sette opp en konfig
+ _--init_  hjelper deg med å sette opp  en konfig
 
 ```bash
 /git/myRepo $ node node_modules/.bin/eslint --init
@@ -189,10 +183,6 @@ module.exports = {
     },
     "extends": "eslint:recommended",
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
         "linebreak-style": [
             "error",
             "unix"
@@ -201,10 +191,7 @@ module.exports = {
             "error",
             "double"
         ],
-        "semi": [
-            "error",
-            "always"
-        ]
+        ....
     }
 ```
 
@@ -215,36 +202,28 @@ module.exports = {
 ## Strategi
 
 
-----
+```javascript
+{ "extends": "airbnb-base" }
+```
 
-#### Nytt repo
+eller
 
 ```javascript
 {
-    "extends": "airbnb-base"
+"extends": "eslint:recommended",
+"rules": [.....]
 }
 ```
+ +
+[prettier](https://github.com/prettier/prettier)
 
-note: anbefaler å benytte en av standardende fra eslint. Hvis man gjør det allerede i fra begynnelsen
-blir det ikke så smertefult å følge de, til tider strenge reglene
 
-mulig å override med rules tilpasset egen kode
-
-----
-
-#### Eksisternede kode
-
-```javascript
-
-    "rules": {
-        "quotes": [
-            "error",
-            "double"
-        ]
-}
-```
-
-Note: begynn i det små og legg til gradvis sterker og sterke regler
+note:
+* anbefaler å benytte en av standardende fra eslint init.
+* Hvis man gjør det allerede i fra begynnelsen blir det ikke så smertefult å følge de, til tider strenge reglene
+* Alternatvit å bruke estlints til å detektere regelbrudd og prettier til kodeformat
+* Mulig å override med rules tilpasset egen kode
+* Begynn i det små og legg til gradvis sterker og sterke regler
 
 ----
 
@@ -284,7 +263,7 @@ kompileres ned til JavaScript som igjen tolkes av nettleseren
 
 ----
 
-## Statisk vs dynamisk typing
+## Statisk vs dynamisk
 
 * Statisk typede språk:  variabeltyper sjekkes compile-time
 * Dynamsisk typede språk:  sjekkes først runtime
@@ -308,19 +287,16 @@ Her ser vi noen hovedforskjeller mellom statis og dynamiske språl
 
 ## Fordeler med statisk typede språk
 
-note: hvorfor ønsker vi å tilføre kompleksistet til språkvet ved statisk typing
-
 ----
 
-* Forbedret autofullfør i IDE
-* Større grad av selvdokumentasjon
-* Forenkler søk i koden - IDEen kan lede deg dirrekte til feks
-  funksjonsdefinisjonen
-* Reduserer uforutsette feil feks brukerinputtvalidering
+* Autofullfør & søk i koden - IDEen leder til funksjonsdefinisjon
+* Økt selvdokumentasjon
+* Reduserer uforutsette feil - eks typos, manglende parametere og brukerinputtvalidering
 * Dokumenterer kontrakten med backend. Spesifiserer domeneobjekter
 
 Note:
-VI SKAL SE PÅ TO ULIKE TILNÆRMINGER TIL STATISK TYPING I JAVASCRIPT
+ hvorfor ønsker vi å tilføre kompleksistet til språkvet ved statisk typing
+ VI SKAL SE PÅ TO ULIKE TILNÆRMINGER TIL STATISK TYPING I JAVASCRIPT
 
 ---
 
@@ -333,7 +309,7 @@ VI SKAL SE PÅ TO ULIKE TILNÆRMINGER TIL STATISK TYPING I JAVASCRIPT
 
 > Flow employs the kind of data-flow and control-flow analysis that compilers
 > typically perform to extract semantic information from code.
-> It then uses this information for type inference
+> It then uses this information for type utledning
 > building on advanced techniques in type theory.
 > <span class="smaller right">[F Code](https://code.facebook.com/posts/1505962329687926/flow-a-new-static-type-checker-for-javascript/)</smaller>
 
@@ -346,12 +322,11 @@ ikke en kompilater men en sjekker
 
 ----
 
-### Type inference
 
->Using data flow analysis, Flow infers types and tracks data as it moves through your code.
->You don't need to fully annotate your code before Flow can start to find bugs.
 
 ----
+
+### Type utledning
 
 ```javascript
 // @flow
@@ -362,6 +337,13 @@ function concat(a, b) {
 concat("A", "B"); 
 concat(1, 2); 
 ```
+
+
+----
+
+>Using data flow analysis, Flow infers types and tracks data as it moves through your code.
+>You don't need to fully annotate your code before Flow can start to find bugs.
+
 
 ----
 
@@ -386,18 +368,19 @@ note: i noen tilfeller ønsker man å spesifisere typene for å garantere oppfø
 
 <p class="smaller">Rikt utvalg av typer og språklige features :</p>
 
-* primitive typer
-* klasser med arv
+* Primitive typer
+* Komplekse typer, klasser, arv
 * Enum
 * Generics
-* ...
+
+...
 
 
 ----
 
-### Støtter non-nullable
+###  non-nullable
 
-sjekkeren gir feilmelding når man forsøker å bruke en verdi som kan være null
+
 
 ```javascript
 // error: return undefined. This type is incompatible with string
@@ -406,6 +389,36 @@ function foo(num: number): string {
 		return 'cool';
 	}
 }
+```
+note: sjekkeren gir feilmelding når man forsøker å bruke en verdi som kan være null
+
+
+----
+
+#### Sunnhet
+
+```javascript
+// @flow
+
+function foo(x: ?number): string {
+  if (x) {
+    return x;
+  }
+  return "default string";
+}
+```
+
+note: sjekker alle mulige gyldige verdier og utleder mulige utfall
+
+
+----
+
+```bash
+Error: src/error.js:5
+  5:     return x;
+                ^ number. This type is incompatible with the expected return type of
+  3: function foo(x: ?number): string {
+                               ^^^^^^ string
 ```
 
 ----
@@ -422,6 +435,10 @@ function foo(num: number): string {
 }
 ```
 
+----
+
+#### OG kjør!
+
 ```bash
 /git/myRepo $ yarn run babel src/
 /git/myRepo $ yarn add --dev flow-bin
@@ -432,29 +449,18 @@ function foo(num: number): string {
 
 ----
 
-```javascript
-// @flow
 
-function foo(x: ?number): string {
-  if (x) {
-    return x;
-  }
-  return "default string";
-}
-```
+#### .flowconfig
+
+* linting for Flow
+* use_strict
+* suppress_type='anyother' // tillat any-type
 
 
-----
+Stram til løkka!
 
-```bash
-Error: src/error.js:5
-  5:     return x;
-                ^ number. This type is incompatible with the expected return type of
-  3: function foo(x: ?number): string {
-                               ^^^^^^ string
-```
 
-----
+note:
 
 .flowconfig
 
@@ -475,15 +481,7 @@ Error: src/error.js:5
 ```
 
 
-note:
-lints: regler for flow-linting
 
-----
-
- Bruk options-feltet til å stramme til løkka
-
-* use_strict=true
-* suppress_type='anyother'
 
 ---
 
@@ -501,7 +499,7 @@ lints: regler for flow-linting
 note:
 
 Baserer seg på ES6 (men videreutvikles mot ES7/8)
-Basserer seg på  annotasjoner i koden - men har også innebygget inference
+Basserer seg på  annotasjoner i koden - men har også innebygget utleding (_inference_)
 kompileres for å sjekke koden og fjerne annotasjonene 
 
 
@@ -511,7 +509,7 @@ kjørbar javascript.
 
 ----
 
-###  Inference & annotasjoner 
+### Utleding & annotasjoner 
 
 ```javascript
 let a: string = 'Hello';
@@ -520,18 +518,18 @@ let c = false;
 let d = c + b; // Operator '+' cannot be applied to types 'number' and 'false'.
 ```
 
-note: disse kan også inferece av kompilator
+note: disse kan også utledning av kompilator
 man bygger også mer komlekse typer vha Class eller json-implementasjoner av interfaces
 
 ----
 
 ### Typer
 
-I likhet til Flow et rikt utvalg av typer og feature
+* Rikt utvalg av typer og features
+ <p class="smaller">men</p>
+* Typer er nullable (må nullsjekkes)
 
-<p class="smaller">men</p>
-
-Typer er  nullable (må nullsjekkes)
+note: som FLOW rikt utvalg typer, ulikt FLOW nullable
 
 ----
 
@@ -585,13 +583,8 @@ note: også veldig god innebygget støtte i Vistual Studio Code
         "outFile": "../../built/local/tsc.js",
         "sourceMap": true
     },
-    "include": [
-        "src/**/*"
-    ],
-    "exclude": [
-        "node_modules",
-        "**/*.spec.ts"
-    ]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
 ```
 
 
@@ -656,6 +649,20 @@ lagt opp i eksempler, tutorials og boilerplates
 
 men kan velge selv
 
+
+
+----
+
+### Andre statisk typede språk som transpileres til JavaScript
+
+Dart - TypeScript - TeJaSasm.js - JavaScript++ - MascaraRoy - Elm - Swym - Typecast.jsPureScript - Flow - ActionScript - BuckleScript	
+
+note: lang liste - bare å velge og vrakte til sitt formål
+
+
+---
+
+# Hvorfor blir koden bedre vha lint, prittier, statisk typer?
 ---
 
 # Nøkkelfaktor
@@ -671,7 +678,7 @@ note:
 * husk at det er andre som skal jobbe videre på koden når du har reist
 * gled deg til jul
 
-note: 
+
 
 ---
 
@@ -682,8 +689,9 @@ note:
 
 ---
 
-*https://flow.org/en/
-*https://www.typescriptlang.org/index.html
-*https://djcordhose.github.io/flow-vs-typescript/2016_hhjs.html
+* https://flow.org/en/
+* https://www.typescriptlang.org/index.html
+* https://djcordhose.github.io/flow-vs-typescript/2016_hhjs.html
 
 ---
+    
