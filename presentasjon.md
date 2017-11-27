@@ -652,11 +652,13 @@ men kan velge selv
 <img src="http://localhost:1948/_assets/img/wantyou.png" alt="You!" style="width: 400px; height:500px; border: none;"/>
 
 note:
+* KISS
 * vær nøye
 * vis arbeidsstoltet
 * husk at det er andre som skal jobbe videre på koden når du har reist
 * gled deg til jul
 
+note: 
 
 ---
 
