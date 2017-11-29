@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/systek/systek-reveal-md-template#readme",
   "dependencies": {
+    "phantomjs": "^2.1.7",
     "reveal-md": "^0.5.0"
   }
 }

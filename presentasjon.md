@@ -1,27 +1,4 @@
-## // TODO
-
-* stramme inn enda mer - færre foiler
-* typos
-* hva nå - kikke litt inn i kodekvalitet-fremtiden (som overgang til Håvard)
-* webassembly ???
-
-
-* Morsom forhistore
-* Bra innhold
-* Litt mange slides. Litt mye blafring.
-* Må forbedre slidesettet litt
-* Bør bruke større bilder(fullskjerm?). Foto av høy kvalitet!
-* Hva er budskapet? Hva ønsker du å formidle..
-* Litt mer energi
-* Finnes det andre typer statiske typede javascript?
-* Går over tiden!
-* Det er noe med formatet på å vise kode
-* Litt mer overordnet før man dypdykker
-* Løsrive seg fra manus
-
-
----
-
+   
 # SYSTEK
 
 ### Høyne din kodekvalitet med statisk typing og hissig linting
@@ -32,11 +9,16 @@
 
 note: 
 
-* Pleide sitte som herre i egen borg
-* global.js < 500 l. kode
-* Moderne applikasjon >  10 000 l. kode javascript
-* Konsulenttilværelse - oftere bytte
-* Ettermæle
+ikke mora di
+ikke kjæresten din
+ikke kollegene dine - egentlig
+ikke du?
+
+    - trenger hjelp - parprogrammering
+    - andre bidrag - roter i koden DIN?
+    - jobb-bytte - andre må overta - ganske allright at koden er skrevet på måte som gjør den lett å sette seg inn i
+
+ Ettermæle
 
 ---
 
@@ -49,26 +31,26 @@ note:
   <span class="smaller">ES5, ES6, ES2016, ES2017... </span>
 * jQuery, Lodash, Vue, Ember, Angular, React, Elm
 
----
-
-<img src="http://localhost:1948/_assets/img/pizzabonanza.png" alt="Pizza" style="width: 100%; height:90%"/>
-
-Note: vokser ut av proposjoner
-
----
 
 note:
 
-<img src="http://localhost:1948/_assets/img/nissegrot_pasta.jpg" alt="Nissegrøt pasta" style="width: 400px; height:300px"/>
-
-Note: Fort gjor tå ende opp med spaghettikode - upassende mat for nissen. Gretten nisse.......
+Og så er det noe med historien til javascriot / EcmaScript
+* flere som koder i basen
+* løser mange flere oppgaver nå enn for 20 år siden
+* global.js < 500 l. kode
+* Moderne applikasjon >  10 000 l. kode javascript
+* vokser og vokser og vokser
 
 ---
 
-<img src="http://localhost:1948/_assets/img/lady_landstryker.jpg" alt="Lady og Landstrykeren" style="width: 100%; height:85%"/>
+<img src="http://localhost:1948/_assets/img/pizzabonanza.png" alt="Pizza" style="width: 600px ; height:450px;"/>
+
+---
+
+<img src="http://localhost:1948/_assets/img/lady_landstryker.jpg" alt="Lady og Landstrykeren" style="width: 600px ; height:450px;"/>
 
 
-Note: hvis man tar i bruk noen enkle teknikker venter en belønning i andre enden
+Note:  ender opp i spaghettikode - men  hva noen enkle teknikker kan det vente en belønning i andre enden
 
 ---
 
@@ -76,17 +58,11 @@ Note: hvis man tar i bruk noen enkle teknikker venter en belønning i andre ende
 
 ----
 
-### Årets julegave til deg selv:
+### Årets julegave til deg selv
 
 ----
 
 #### Lesbar, forståelig  og forvaltbar kode
-
-Note: år du i år tilbake med samme monn:
-    Hvordan  forbedre kodekvalitet?
-    Ulike virkemidler
-
-Først: Linting
 
 ---
 
@@ -108,30 +84,26 @@ _Oxford Dictionary_
 
 
 note:
-Korte fine fibre som adskilles fra  tøystykke  under bearbeiding.
+Korte fine fibre som adskilles fra tøystykke  under bearbeiding.
 
 ----
 
-#### På godt norsk:
-
-## LO!
+# LO
 
 ----
-
-#### I vår verden:
 
 _Statisk analyse av kildekode for å detektere brudd på definerte regler_
 
-Note: Utviklet av Stephen C. Johnson hos Bell Labs for sjekk av C-kode. Senere
- som del av  Unix operating system  1979
+Note: Et verktøy utviklet av Stephen C. Johnson hos Bell Labs for sjekk av C-kode.
+Senere inngikk dette som del av Unix operating system - 1979
 
 ----
 
 #### Linting i JavaScript
 
-* **JSLint** (2002) Douglas Crockford. Sjekker om JS-kode følger kodereglene 
-* **JSHint** (2010) Anton Kovalyov. Fork av JSLint for bedre tilpassing av reglene 
-* **ESLint** (2013) Nicholas C. Zakas. Laget for at utviklere skal kunne lage engne regler til koden 
+* **JSLint** (2002) Douglas Crockford. Sjekker om JS-kode gitte koderegler 
+* **JSHint** (2010) Anton Kovalyov. Fork av JSLint for bedre regeltilpassing 
+* **ESLint** (2013) Nicholas C. Zakas. Utviklere skal kunne sette opp eget regelsett
 * **TSLint** (2015) Palantir Technologies. Linting for TypeScript
 
 Note: >>>
@@ -155,11 +127,11 @@ TSLINT  bygger på ESLINT men tilpasset typescript
 note:  Eller som del av bygget
 
 
-eslint --init lager en .eslintrc.js fil for deg 
+eslint --init generer  _.eslintrc.js fil for deg 
 
 ----
 
- _--init_  hjelper deg med å sette opp  en konfig
+ _--init_  generer  _.eslintrc.js_-fil for deg
 
 ```bash
 /git/myRepo $ node node_modules/.bin/eslint --init
@@ -195,6 +167,15 @@ module.exports = {
     }
 ```
 
+note:
+
+*eslint:recomended - fast anbefalt regelsett som kommer med eslint
+
+HVIS SPM:
+*linebreak; style
+    "unix" (default) enforces the usage of Unix line endings: \n for LF.
+    "windows" enforces the usage of Windows line endings: \r\n for CRLF.
+
 
 ----
 
@@ -219,11 +200,18 @@ eller
 
 
 note:
-* anbefaler å benytte en av standardende fra eslint init.
-* Hvis man gjør det allerede i fra begynnelsen blir det ikke så smertefult å følge de, til tider strenge reglene
+* anbefaler en av standardende fra eslint init.
+* Start med en gang > mindre smertefult å følge de, til tider strenge reglene
 * Alternatvit å bruke estlints til å detektere regelbrudd og prettier til kodeformat
-* Mulig å override med rules tilpasset egen kode
+* Override med rules tilpasset egen kode
 * Begynn i det små og legg til gradvis sterker og sterke regler
+
+Prettier
+    sta kodeformater
+    omformaterer koden ON-THE-RUN
+
+Airbnb
+    både STIL og FEIL i koden. Kan være tungt å svelge 
 
 ----
 
@@ -232,14 +220,16 @@ note:
 ---
 
 # JavaScript / EcmaScript
-### Syntaks - Sukker - Sirup
+ Syntaks - Sukker - Sirup
 
-Note: 
-Som nevnt ble ikke JS skrevet med hennblikk på å lage store single-page applikasjoner. Ttf kraftig
-endringer av språket fra første versjon i 1997 til dagens v2017, finnes det fortsatt grunnleggende egenskaper
-i språket som gjør det vanskelig å strukturere og organisere for mange utviklere, 
-Ikke alle trives med å skrive JavaScript etter standarden, slik det støttes av nettleseren. Derfor er det kommet
-opp et  mylder av ulike språk som kan kompileres ned til JavaScript slik at det kan nyttes i nettlesern
+Note:
+Vi skal nå se på statisk typing , men først litt om hvorr behovet kommer fra
+
+* JS ikke skrevet for å lage store single-page applikasjoner.
+* Store endringer siden V1
+* Fortsatt grunnleggende egenskaper >  vanskelig å strukturere og organisere 
+* Ikke alle trives med JS Syntaks jfr standard,  (slik det støttes av nettleseren)
+* Et mylder av ulike språk som kan kompileres ned til JavaScript slik at det kan nyttes i nettlesern
 
 ----
 
@@ -255,10 +245,12 @@ opp et  mylder av ulike språk som kan kompileres ned til JavaScript slik at det
 
 Note: 
 
-For mange er slike språk med på å effektivisere arbeidshverdagen i det man kan
-uttrykke seg mer konsist, eller forståelig eller bygge strukturen i koden etter
-eget hjerte, MEN en kan ikke utrykke noe mer enn i JavaScript ettersom alt
-kompileres ned til JavaScript som igjen tolkes av nettleseren
+* Effektivisere arbeidshverdagen 
+* Uttrykke seg mer konsist,
+  ** forståelig
+  ** bygge strukturen i koden etter eget hjerte
+* MEN uttrykker ingen ting MED enn JS
+* kompileres  til JS som igjen tolkes av nettleseren
 
 
 ----
@@ -271,17 +263,17 @@ kompileres ned til JavaScript som igjen tolkes av nettleseren
 * * kræsjer hvis det ikke tas høyde for typekonflikter
 
 note:
-Her ser vi noen hovedforskjeller mellom statis og dynamiske språl
+# Hovedforskjeller mellom statis og dynamiske språk
 
-# Fordeler med dynamisk typede språk
+# Fordeler ved DYNAMISK 
+
 * Mer konsist / mindre verbost
-* Slipper å vente på kompilering > rett i interpreter > umiddelbar feedback til
-  utvikler
+* Slipper å vente på kompilering
+  ** rett i interpreter
+  ** umiddelbar feedback til utvikler
 * Slipper å bruke tid på å uttrykke seg korrekt - mer fleksibilitet
-* Slipper å refaktorisere hele kodebasen ved typeendringer (men må bruke tid på
-  testing istede)
-* 
-
+* Slipper å refaktorisere hele kodebasen ved typeendringer
+  ** Men må bruke tid på testing istede
 
 ----
 
@@ -295,8 +287,11 @@ Her ser vi noen hovedforskjeller mellom statis og dynamiske språl
 * Dokumenterer kontrakten med backend. Spesifiserer domeneobjekter
 
 Note:
- hvorfor ønsker vi å tilføre kompleksistet til språkvet ved statisk typing
- VI SKAL SE PÅ TO ULIKE TILNÆRMINGER TIL STATISK TYPING I JAVASCRIPT
+
+#hvorfor ønsker vi å tilføre kompleksistet til språket ved statisk typing
+
+ ** 2 ulike tilnærminger til statisk typing
+ ** gevinsten ved å gjøre dette
 
 ---
 
@@ -309,24 +304,25 @@ Note:
 
 > Flow employs the kind of data-flow and control-flow analysis that compilers
 > typically perform to extract semantic information from code.
-> It then uses this information for type utledning
+> It then uses this information for type inference
 > building on advanced techniques in type theory.
 > <span class="smaller right">[F Code](https://code.facebook.com/posts/1505962329687926/flow-a-new-static-type-checker-for-javascript/)</smaller>
 
 note:
-Henter ut fordeler uten å miste følelsen av javascript
-Ligger som et lag ovenpå JS 
-kan kjøres i bakgrunnen (-watch)
-Utfører sofistikert programanlyse innenfor kjente idiomer
-ikke en kompilater men en sjekker
-
-----
-
-
+* Henter ut fordeler uten å miste følelsen av javascript
+* Ligger som et lag ovenpå JS 
+* Kjøres i bakgrunnen (-watch) eller IDE i tillegg til som del av byggget
+* Sofistikert programanlyse innenfor kjente idiomer
+* IKKE EN KOMPILATER MEN EN SJEKKER
 
 ----
 
 ### Type utledning
+
+>Using data flow analysis, Flow infers types and tracks data as it moves through your code.
+>You don't need to fully annotate your code before Flow can start to find bugs.
+
+----
 
 ```javascript
 // @flow
@@ -341,11 +337,6 @@ concat(1, 2);
 
 ----
 
->Using data flow analysis, Flow infers types and tracks data as it moves through your code.
->You don't need to fully annotate your code before Flow can start to find bugs.
-
-
-----
 
 ### Type annotasjon 
 
@@ -363,6 +354,19 @@ note: i noen tilfeller ønsker man å spesifisere typene for å garantere oppfø
 
 ----
 
+```bash
+/git/myRepo $  node_modules/.bin/flow 
+Error: src/error.js:7
+  7: concat(1, 2); // Error!
+            ^ number. This type is incompatible with the
+expected param type of
+  2: function concat(a: string, b: string) {
+                        ^^^^^^ string
+...
+```
+note: sier naturligvis i fra om begge tilfellene
+
+----
 
 ### Typer
 
@@ -383,15 +387,16 @@ note: i noen tilfeller ønsker man å spesifisere typene for å garantere oppfø
 
 
 ```javascript
-// error: return undefined. This type is incompatible with string
+// @flow
 function foo(num: number): string {
 	if (num > 10) {
 		return 'cool';
 	}
 }
+// error: return undefined. This type is
+// incompatible with string
 ```
 note: sjekkeren gir feilmelding når man forsøker å bruke en verdi som kan være null
-
 
 ----
 
@@ -414,9 +419,11 @@ note: sjekker alle mulige gyldige verdier og utleder mulige utfall
 ----
 
 ```bash
+/git/myRepo $ node_modules/.bin/flow 
 Error: src/error.js:5
   5:     return x;
-                ^ number. This type is incompatible with the expected return type of
+                ^ number. This type is incompatible with the
+expected return type of
   3: function foo(x: ?number): string {
                                ^^^^^^ string
 ```
@@ -450,7 +457,7 @@ Error: src/error.js:5
 ----
 
 
-#### .flowconfig
+_.flowconfig_
 
 * linting for Flow
 * use_strict
@@ -498,14 +505,16 @@ note:
 
 note:
 
-Baserer seg på ES6 (men videreutvikles mot ES7/8)
-Basserer seg på  annotasjoner i koden - men har også innebygget utleding (_inference_)
-kompileres for å sjekke koden og fjerne annotasjonene 
+* Baserer seg på ES6 (men videreutvikles mot ES7/8)
+* Basserer seg på  annotasjoner i koden - men har også innebygget utleding (_inference_)
+* kompileres (babelify/webpack) for å sjekke koden og fjerne annotasjonene 
 
 
-Sentral forskjell mellom TS og Flow. For få flow-kode til å kjøre må annotasjonen fjernes
-(av feks Babel)  TypeScript, derimot, implementerer både en type-sjekker og en trasnspiler som spytter ut
-kjørbar javascript.
+Sentral forskjell mellom TS og Flow.
+* flow-kode må fjernes annotasjonen (av feks Babel)
+* TypeScript, derimot, er et språk
+  ** implementerer både en type-sjekker og en trasnspiler som spytter ut
+  kjørbar javascript.
 
 ----
 
@@ -518,9 +527,6 @@ let c = false;
 let d = c + b; // Operator '+' cannot be applied to types 'number' and 'false'.
 ```
 
-note: disse kan også utledning av kompilator
-man bygger også mer komlekse typer vha Class eller json-implementasjoner av interfaces
-
 ----
 
 ### Typer
@@ -529,7 +535,6 @@ man bygger også mer komlekse typer vha Class eller json-implementasjoner av int
  <p class="smaller">men</p>
 * Typer er nullable (må nullsjekkes)
 
-note: som FLOW rikt utvalg typer, ulikt FLOW nullable
 
 ----
 
@@ -544,7 +549,7 @@ objektorientering i ryggmargen - mye java
 
 ----
 
-hellovoid.ts
+_hellovoid.ts_
 
 
 ```javascript
@@ -559,6 +564,7 @@ document.body.innerHTML = greeter(user);
 
 ----
 
+
 ```bash
 /git/myRepo $  node_modules/.bin/tsc hellovoid.ts 
 src/test.ts(7,35): error TS2345:
@@ -571,7 +577,7 @@ note: også veldig god innebygget støtte i Vistual Studio Code
 
 ----
 
-.tsconfig.json
+_.tsconfig.json_
 
 ```json
 {
@@ -588,7 +594,7 @@ note: også veldig god innebygget støtte i Vistual Studio Code
 ```
 
 
-note: // kan skippes
+note: HVIS SPØRSMÅL
 
 module: pecify module code generation: "None", "CommonJS", "AMD", "System", "UMD", "ES6", "ES2015" or "ESNext".
 ► Only "AMD" and "System" can be used in conjunction with --outFile.
@@ -638,7 +644,7 @@ Enabling --strict enables --noImplicitAny, --noImplicitThis, --alwaysStrict, --s
 * TypeScript and Flow har sett mye til hverandre
 * Begge suporterer React, Angular mv
 * TypeScript er en kompilator, Flow er en sjekker
-* Flow har bedre sunnhetsforståelse (ungå run-time-feil)
+* Flow har bedre sunnhetsforståelse (unngå run-time-feil)
 * TypeScript har bedre tooling
 * Flow trenger i liten grad å skrive om koden 
 
@@ -653,19 +659,36 @@ men kan velge selv
 
 ----
 
-### Andre statisk typede språk som transpileres til JavaScript
+### Andre statisk typede språk
 
-Dart - TypeScript - TeJaSasm.js - JavaScript++ - MascaraRoy - Elm - Swym - Typecast.jsPureScript - Flow - ActionScript - BuckleScript	
+Som transpilerer til JavaScript
+
+ Elm - Dart - TeJaSasm.js - JavaScript++ - MascaraRoy  - Swym - Typecast.js - PureScript - ActionScript - BuckleScript 
 
 note: lang liste - bare å velge og vrakte til sitt formål
 
-
 ---
 
-# Hvorfor blir koden bedre vha lint, prittier, statisk typer?
----
+### Blir koden bedre?
 
-# Nøkkelfaktor
+----
+
+* Lesbarhet - oversikt
+* Syntaks-feil
+* Sunnhet
+* Garantere for data
+* Dokumentasjon
+* Skiller data og logikk
+
+
+
+note:
+* Gjenkjennelig stil
+* Sunnhet: FLOW kan sjekke returverdier
+* Feil ved brudd på interface/klasse-deklarasjon
+* Definerer domene-objekter (må ikke overhodes fra backend)
+* Slipper unæødvendige "er felt tilstede" sjekker
+
 
 ---
 
@@ -673,12 +696,11 @@ note: lang liste - bare å velge og vrakte til sitt formål
 
 note:
 * KISS
+* strukturer koden din
 * vær nøye
 * vis arbeidsstoltet
 * husk at det er andre som skal jobbe videre på koden når du har reist
 * gled deg til jul
-
-
 
 ---
 
@@ -687,11 +709,10 @@ note:
 
 <img src="http://localhost:1948/_assets/img/happy_santa.jpg" alt="Happy Santa!" style="width: 400px; height:300px;"/>
 
----
+----
 
 * https://flow.org/en/
 * https://www.typescriptlang.org/index.html
 * https://djcordhose.github.io/flow-vs-typescript/2016_hhjs.html
+* https://eslint.org/
 
----
-    
