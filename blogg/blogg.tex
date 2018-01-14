@@ -1,0 +1,99 @@
+\documentclass[12pt,norsk,a4enc per]{article}
+\usepackage[norsk]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{dirtytalk}
+
+\title{Høyne din  kodekvalitet med statisk typing og hissig linting }
+
+\author{Hans Ole Gjerdrum \\Systek AS}
+\date{\today}
+
+
+
+\begin{document}
+\maketitle
+
+
+\section{Introduction}
+Alt for ofte, når jeg bytter prosjekt eller åpner et nytt repo, slår det meg i
+ansiktet at koden mest ser ut som et tenåringsrom. Og hvem bryr seg egentlig om
+hvordan kodekvaliteten? Du kan jo hevde at det bare er du selv som sitter i din
+kode-borg og regjerer allmektig, men da glemmer du de gangene du trenger hjelp,
+eller skal par-programere deg gjennom et problem, og den dagen kommer da du skal
+forlate prosjektet og gå videre. Da er det koden du etterlater deg som er ditt
+\textit{ettermæle}
+
+
+I nesten alle prosjektene jeg har jobbet som front-end-utvikler har jeg sittet
+alene med ansvaret for JavaScript-koden. Mens Javautviklerene lenge har hatt
+prosesser og verktøy for å sikre kvaliteten på deres kode, har ikke vi
+frontendere jobbet etter slike metoder. Men moderne frontend-kode trenger også
+slike metoder.
+
+
+Og det var kanskje ikke så farlig så
+lenge man jobbet i \textit{global.js} på < 500 linjer kode med validering av
+inputfelter. Men moderne applikasjoner skal løse uhyre  mer kompliserte oppgaver, de
+
+
+
+=> Lesbar, forstålig og forvaltbar kode
+
+\section{Lint}
+
+\subsection{Hva er Linting}
+Fra \textbf{Oxford Dictionary} har vi at lint er:
+\begin{quote}
+Short, fine fibres which separate from the surface of cloth or yarn during
+processing.
+\end{quote}
+
+\ldots det vi på norsk kaller \textit{lo}. Innen informatikken er linting brukt
+om verktøy som skal hjelpe til med å oppdage og å fjerne kildekodens
+hybelkaniner, eller sagt på en annen måte \textit{Statisk analyse av kildekode
+  for å detektere brudd på definerte regler}. Lint, som verktøy, ble først
+utviklet av Stephen C. Johnson hos Bell Labs for sjekk av C-kode. Senere har det
+ingått som del av Unix OS.
+
+
+\subsection{Linting i JavaScript}
+
+Det første verktøyet for å \textit{linte} JavaScript-kode kom i 2002. Det var
+online kodesjekkeren \textbf{JSLint}, utviklet av Douglas Crockford. Ved å lime
+js-koden sin inn på siden \underline{http://jslint.com/} kunne man få
+feilmeldinger og advarsler om hvor koden fravekt et sett med forhåndsdefinerte
+regler for hva god kode skulle innebære. For bedre å kunne tilpasse disse
+reglene etter egne behov, forket Anton Kovalyov i 2010 JSLint ut til prosjektet
+\textbf{JSHint}. JSHint ble også loevert som kommandolinje klient distribuert
+som mode-module, at linting kunne bli et steg av kodebyggingen. Dagens
+``industristandard'' må sies å være Nicholas C. Zakas' \textbf{ESLint} fra 2013.
+Dette verktøyet har tatt brukertilpassingen ennå et steg videre, og har også
+muliggjort å anngi hvilke EcmaSript-versjn koden er skrevet i. For utivklere på
+TypeScript finnes det også en linte-verktøy kalt \textbf{TSLint} utviklet av
+Palantir Technologies.
+
+
+
+
+\section{Type}
+
+
+
+
+
+\paragraph{Outline}
+
+
+\section{Results}\label{results}
+In this section we describe the results.
+
+\section{Conclusions}\label{conclusions}
+We worked hard, and achieved very little.
+
+
+\end{document}
+
+
+
+
