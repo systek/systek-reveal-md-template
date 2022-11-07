@@ -1,20 +1,23 @@
-import React from "react";
-import { Async, Result as DataResult } from "../api";
-import { AsyncData, Result } from "@swan-io/boxed";
+import { Async } from "../api";
 import { Order, Props as OrderProps } from "./Order";
 import { Served } from "./Served";
-
+import cheersImage from "../img/cheers.jpeg";
 export type Props = {
   order: Async.Order;
 } & Pick<OrderProps, "menu" | "orderAction">;
 
 export enum TestId {
   order = "customer-order",
+  header = "customer-header",
   loading = "customer-loading",
   served = "customer-served",
 }
 const Customer = ({ order, menu, orderAction }: Props) => (
   <div className="customer">
+    <header data-testid={TestId.header}>
+      <h3>Welcome to Cheers</h3>
+      <img src={cheersImage} alt="Our Bar" />
+    </header>
     {order.match({
       NotAsked: () => (
         <Order {...{ "data-testid": TestId.order, menu, orderAction }} />

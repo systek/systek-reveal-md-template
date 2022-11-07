@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 import { AsyncData, Result as BoxedResult } from "@swan-io/boxed";
-import { OrderDTO } from "./order";
-
+import { MenuDTO, OrderDTO } from "./order";
+type Error = unknown;
 export declare namespace Result {
-  type Order = BoxedResult<OrderDTO, unknown>;
-  type Menu = BoxedResult<OrderDTO, unknown>;
+  type Order = BoxedResult<OrderDTO, Error>;
+  type Menu = BoxedResult<MenuDTO, Error>;
 }
 
 export declare namespace Async {

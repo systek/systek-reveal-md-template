@@ -1,4 +1,4 @@
-import { Async } from "../../api";
+import { Async, OrderDTO, PlacedOrder } from "../../api";
 
 import { ActionTypes } from "../types";
 
@@ -8,15 +8,16 @@ export interface AppState {
 }
 
 export enum AppActions {
-  INIT = "APP_INIT",
+  MENU_INIT = "APP_MENU_INIT",
   MENU = "APP_MENU",
   ORDER = "APP_ORDER",
+  ORDER_INIT = "APP_ORDER_INIT",
 }
 
 export interface AppActionData {
-  init?: string;
   menu: Async.Menu;
   order: Async.Order;
+  placedOrder: PlacedOrder;
 }
 
 export type AppActionTypes = ActionTypes<AppActions, AppActionData>;

@@ -3,6 +3,7 @@ import { asUrlParam } from "../utils/path.utils";
 import { UrlParam } from "../utils/types";
 
 export const paths = {
+  menu: build("/", "menu"),
   order: {
     "/": build("/", "order", asUrlParam(UrlParam.ordernr)),
     cancel: build("/", "order", asUrlParam(UrlParam.ordernr), "cancel"),

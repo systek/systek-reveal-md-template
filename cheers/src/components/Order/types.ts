@@ -7,6 +7,5 @@ export type Props = {
 };
 export enum TestId {
   menu = "customer-menu",
-  header = "customer-header",
   order = "customer-order",
 }

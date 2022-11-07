@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/no-render-in-setup */
 import { AsyncData } from "@swan-io/boxed";
 import { render as testRender, screen } from "@testing-library/react";
 import { DeepPartial } from "redux";
@@ -26,6 +27,13 @@ describe("Customer Component", () => {
   beforeEach(setup);
 
   it("should be defined", () => expect(render()).toBeDefined());
+  it("should render header", () => {
+    render();
+    expect(screen.getByTestId(TestId.header)).toBeInTheDocument();
+    expect(screen.getByTestId(TestId.header)?.textContent).toContain(
+      "Welcome to Cheers"
+    );
+  });
 
   describe("before any order is placed", () => {
     beforeEach(() => {

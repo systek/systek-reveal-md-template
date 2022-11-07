@@ -1,89 +1,76 @@
 /* eslint-disable @typescript-eslint/no-explicit-any * /
-/* eslint-disable no-return-assign * /
-import { AsyncData, Result } from '@swan-io/boxed';
-import { expectSaga, testSaga } from 'redux-saga-test-plan';
-import { call } from 'redux-saga/effects';
-import { AppError, initialState } from '.';
-import { api } from '../../api';
-import * as appActions from './app.actions';
-import appReducer from './app.reducer';
-import AppSaga, { onAktorInit, onCallError, putStatus } from './app.saga';
+/* eslint-disable no-return-assign */
+import { AsyncData, Result } from "@swan-io/boxed";
+import { expectSaga, testSaga } from "redux-saga-test-plan";
+import { call } from "redux-saga/effects";
+import { api, MenuDTO, OrderDTO, paths, PlacedOrder } from "../../api";
+import { menuInit, menu, order, orderInit } from "./app.actions";
+import appReducer, { initialState } from "./app.reducer";
+import AppSaga, { onMenuInit, onOrderInit } from "./app.saga";
 
-describe('app saga', () => {
-    describe(`putStatus`, () => {
-        it('should dispatch yieldStatus action', () => {
-            testSaga(putStatus, 'newStatus').next().put(appActions.yieldStatus('status: newStatus')).next().isDone();
-        });
+const menuDto: MenuDTO = { ipa: 20, lager: 30, porter: 40 };
+const placedOrder: PlacedOrder = { porter: 1 };
+const orderDto = {
+  porter: 1,
+  cost: 40,
+} as OrderDTO;
+
+const serializedOrderUrl = "/order/123";
+describe("app saga", () => {
+  describe(`onMenuInit`, () => {
+    it("should fetch menu and put to state", () => {
+      testSaga(onMenuInit)
+        .next()
+        .put(menu(AsyncData.Loading()))
+        .next()
+        .call(api.get, paths.menu)
+        .next(menuDto)
+        .put(menu(AsyncData.Done(Result.Ok(menuDto))))
+        .next()
+        .isDone();
     });
+  });
 
-    describe('error handling', () => {
-        const error = 'ERROR' as unknown as AppError;
-
-        describe(`onCallError`, () => {
-            it('should dispatch yieldError action', () => {
-                testSaga(onCallError, appActions.callError(error))
-                    .next()
-                    .put(appActions.yieldError(error))
-                    .next()
-                    .isDone();
-            });
-        });
-
-        describe('dispatch error', () => {
-            it('provide global error filter', () =>
-                expectSaga(AppSaga)
-                    .withReducer(appReducer)
-                    .dispatch(appActions.callError(error))
-                    .hasFinalState({ ...initialState, error })
-                    .run({ silenceTimeout: true }));
-        });
+  describe(`onOrderInit`, () => {
+    it("should fetch menu and put to state", () => {
+      testSaga(onOrderInit, orderInit(placedOrder))
+        .next()
+        .put(order(AsyncData.Loading()))
+        .next()
+        .call(api.post, serializedOrderUrl, placedOrder)
+        .next(orderDto)
+        .put(order(AsyncData.Done(Result.Ok(orderDto))))
+        .next()
+        .isDone();
     });
+  });
 
-    describe(`onAktorInit`, () => {
-        const resource = '/forsikring-person-partner-intraweb/rest/resource/dsf';
-        const fnr = '123456789';
-        const response = { navn: 'Bill Ward' };
-        const rejection = new Error('HTTP status 404');
-        describe('whith successfull api response', () => {
-            it('should set loading state, call api and dispatch setAktor action', () => {
-                testSaga(onAktorInit, appActions.getAktor(fnr))
-                    .next()
-                    .put(appActions.setAktor(AsyncData.Loading()))
-                    .next()
-                    .call(api.get, `${resource}/${fnr}`)
-                    .next(response)
-                    .put(appActions.setAktor(AsyncData.Done(Result.Ok(response as any))))
-                    .next()
-                    .isDone();
-            });
-        });
-
-        describe('whith unsuccessfull api response', () => {
-            it('should set loading state, call api and dispatch setAktor action', () => {
-                testSaga(onAktorInit, appActions.getAktor(fnr))
-                    .next()
-                    .put(appActions.setAktor(AsyncData.Loading()))
-                    .next()
-                    .call(api.get, `${resource}/${fnr}`)
-                    .throw(rejection)
-                    .put(appActions.setAktor(AsyncData.Done(Result.Error(rejection))))
-                    .next()
-                    .isDone();
-            });
-        });
-
-        describe('dispatch getAktor', () => {
-            it('calls api and updates state', () =>
-                expectSaga(AppSaga)
-                    .withReducer(appReducer)
-                    .dispatch(appActions.getAktor(fnr))
-                    .provide([[call(api.get, `${resource}/${fnr}`), response]])
-                    .hasFinalState({ ...initialState, aktor: AsyncData.Done(Result.Ok(response as any)) })
-                    .run({ silenceTimeout: true }));
-        });
+  describe("dispatch actions", () => {
+    describe("onMenuInit()", () => {
+      it("should call api and updates state", () =>
+        expectSaga(AppSaga)
+          .withReducer(appReducer)
+          .dispatch(menuInit())
+          .provide([[call(api.get, paths.menu), menuDto]])
+          .hasFinalState({
+            ...initialState,
+            menu: AsyncData.Done(Result.Ok(menuDto)),
+          })
+          .run({ silenceTimeout: true }));
     });
+    describe("onOrderInit()", () => {
+      it("should call api and updates state", () =>
+        expectSaga(AppSaga)
+          .withReducer(appReducer)
+          .dispatch(orderInit(placedOrder))
+          .provide([
+            [call(api.post, serializedOrderUrl, placedOrder), orderDto],
+          ])
+          .hasFinalState({
+            ...initialState,
+            order: AsyncData.Done(Result.Ok(orderDto)),
+          })
+          .run({ silenceTimeout: true }));
+    });
+  });
 });
-*/
-
-it("description", () => expect(true).toBeDefined());
-export {};

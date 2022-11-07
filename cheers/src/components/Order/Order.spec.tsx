@@ -32,12 +32,6 @@ describe("Customer Component", () => {
     beforeEach(() => {
       render();
     });
-    it("should render header", () => {
-      expect(screen.getByTestId(TestId.header)).toBeInTheDocument();
-      expect(screen.getByTestId(TestId.header)?.textContent).toContain(
-        "Welcome to Cheers"
-      );
-    });
 
     describe("menu", () => {
       describe("before loaded", () => {

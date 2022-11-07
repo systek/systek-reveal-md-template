@@ -10,8 +10,9 @@ export const initialState: AppState = {
 const appReducer = reducerForProducers<AppState, AppActionTypes, AppActions>(
   initialState,
   {
-    [AppActions.INIT]: passReducer,
+    [AppActions.MENU_INIT]: passReducer,
     [AppActions.MENU]: writeToDraft("menu"),
+    [AppActions.ORDER_INIT]: passReducer,
     [AppActions.ORDER]: writeToDraft("order"),
   }
 );

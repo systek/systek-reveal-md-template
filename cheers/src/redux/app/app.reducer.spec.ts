@@ -5,10 +5,12 @@ import { AppActionTypes, AppState } from "./types";
 describe("app.reducer", () => {
   describe("passReducers", () => {
     describe.each([
-      [{}, appActions.init(), {}],
-      [initialState, appActions.init(), initialState],
+      [{}, appActions.menuInit(), {}],
+      [{}, appActions.orderInit({} as any), {}],
+      [initialState, appActions.menuInit(), initialState],
+      [initialState, appActions.orderInit({} as any), initialState],
       // @ts-ignore
-      [initialState, appActions.init("init"), initialState],
+      [initialState, appActions.menuInit("init"), initialState],
     ] as Array<[AppState, AppActionTypes, AppState]>)(
       "with initialState %j \n\t when action %s is dispatched",
       (currentState, actionType, expected) => {

@@ -43,18 +43,38 @@ describe("App Container", () => {
   describe("mapDispatchToProps", () => {
     let dispatch: jest.Mock;
 
+    it("has assigned values", () => {
+      expect(Object.keys(mapDispatchToProps(jest.fn()))).toEqual([
+        "orderAction",
+        "init",
+      ]);
+    });
+
     describe("orderAction", () => {
       beforeEach(() => {
         dispatch = jest.fn();
-
-        (mapDispatchToProps(dispatch) as any).orderAction("order");
+        (mapDispatchToProps(dispatch) as any).orderAction("placedOrder");
       });
 
       it("dispatches order", () => {
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toBeCalledWith({
-          order: "order",
-          type: AppActions.ORDER,
+          placedOrder: "placedOrder",
+          type: AppActions.ORDER_INIT,
+        });
+      });
+    });
+
+    describe("init action", () => {
+      beforeEach(() => {
+        dispatch = jest.fn();
+        (mapDispatchToProps(dispatch) as any).init();
+      });
+
+      it("dispatches menu init", () => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toBeCalledWith({
+          type: AppActions.MENU_INIT,
         });
       });
     });

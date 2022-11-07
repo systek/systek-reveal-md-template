@@ -1,8 +1,10 @@
+/* eslint-disable testing-library/no-render-in-setup */
 import { DeepPartial } from "redux";
 import { AsyncData, Result } from "@swan-io/boxed";
 import { render as testRender, screen } from "@testing-library/react";
 import Served from "./Served";
 import { Props, TestId } from "./types";
+import { OrderDTO } from "../../api";
 describe("Served Component", () => {
   let props: DeepPartial<Props>;
   const setup = (extend: DeepPartial<Props> = {}) =>
@@ -21,7 +23,7 @@ describe("Served Component", () => {
 
   describe("when order is ok", () => {
     beforeEach(() => {
-      setup({ order: Result.Ok({ ipa: 3, lager: 2 }) });
+      setup({ order: Result.Ok({ ipa: 3, lager: 2, cost: 90 } as OrderDTO) });
       render();
     });
 

@@ -1,7 +1,7 @@
+/* eslint-disable testing-library/no-render-in-setup */
 import { AsyncData } from "@swan-io/boxed";
 import { render as testRender, screen } from "@testing-library/react";
 import { DeepPartial } from "redux";
-import { isPropertyDeclaration } from "typescript";
 import Customer, { Props, TestId } from "./Customer";
 
 jest
@@ -43,9 +43,12 @@ describe("Customer Component", () => {
         render();
       });
 
-      it.each(Object.values(TestId).filter((val) => val !== visibleComponent))(
-        "component %s should not be rendered",
-        (id: TestId) => expect(screen.queryByTestId(id)).toBeNull()
+      it.each(
+        Object.values(TestId).filter(
+          (val) => val !== visibleComponent && val !== TestId.header
+        )
+      )("component %s should not be rendered", (id: TestId) =>
+        expect(screen.queryByTestId(id)).toBeNull()
       );
 
       it.each(Object.values(TestId).filter((val) => val === visibleComponent))(

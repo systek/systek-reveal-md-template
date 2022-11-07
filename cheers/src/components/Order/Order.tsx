@@ -1,7 +1,7 @@
 import { Option } from "@swan-io/boxed";
 import { useEffect, useState } from "react";
-import { OrderDTO, Result } from "../../api";
-import cheersImage from "../../img/cheers.jpeg";
+import { MenuDTO, OrderDTO, Result } from "../../api";
+
 import { capitalize } from "../../utils/string";
 import { Props, TestId } from "./types";
 
@@ -11,22 +11,24 @@ const Menu = ({ menu }: Pick<Props, "menu">) => {
       {capitalize(key)}: <span>{val},-</span>
     </>
   );
+
   return Option.fromNullable(menu)
     .map((it) => (it.isDone() ? it.get() : undefined))
     .flatMap((it) =>
-      Option.fromNullable(it).map((itt) => (itt.isOk() ? itt.value : undefined))
+      Option.fromNullable(it).map((itt) => (itt.isOk() ? itt.value : {}))
     )
+    .toResult({})
     .map((it) => (
       <section className="menu" data-testid={TestId.menu}>
         <h4>Menu:</h4>
         <ul>
-          {Object.entries(it as OrderDTO).map(([key, val]) => (
+          {Object.entries(it as MenuDTO).map(([key, val]) => (
             <li key={key}>{price(key, val)}</li>
           ))}
         </ul>
       </section>
     ))
-    .getWithDefault(<></>);
+    .mapError(() => <></>).value;
 };
 
 const Order = ({ orderAction, menu }: Props) => {
@@ -48,10 +50,6 @@ const Order = ({ orderAction, menu }: Props) => {
   };
   return (
     <div className="order">
-      <header data-testid={TestId.header}>
-        <h3>Welcome to Cheers</h3>
-        <img src={cheersImage} alt="Our Bar" />
-      </header>
       <div className="container">
         <Menu menu={menu} />
         <section data-testid={TestId.order}>

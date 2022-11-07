@@ -3,6 +3,7 @@ import { flatten, shape } from "./_mock_/test.utils";
 
 describe("api paths", () => {
   const expectedPath = {
+    menu: "/menu",
     order: {
       "/": "/order/:ordernr",
       cancel: "/order/:ordernr/cancel",
@@ -13,6 +14,7 @@ describe("api paths", () => {
     expect(paths).toEqual(expectedPath));
 
   const flattedPath = [
+    "/menu",
     "/order/:ordernr",
     "/order/:ordernr/cancel",
     "/receipt/:receiptnr",
