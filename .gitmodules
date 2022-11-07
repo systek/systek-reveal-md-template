@@ -1,0 +1,6 @@
+[submodule "cheers/gist/8c7ed5f5c30fb0bb180c07699bebe71b"]
+	path = cheers/gist/8c7ed5f5c30fb0bb180c07699bebe71b
+	url = git@gist.github.com:8c7ed5f5c30fb0bb180c07699bebe71b.git
+[submodule "cheers/gist"]
+	path = cheers/gist
+	url = git@gist.github.com:8c7ed5f5c30fb0bb180c07699bebe71b.git

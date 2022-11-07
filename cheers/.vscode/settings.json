@@ -1,0 +1,40 @@
+{
+    "window.title": "CHEERS [${activeEditorShort}]",
+    "workbench.colorTheme": "Darktooth Material Theme",
+    "jest.jestCommandLine": "npm run test -- --watch",
+    "workbench.colorCustomizations": {
+        "[Darktooth Material Theme]": {
+            "activityBar.background": "#33414e",
+            "statusBar.background": "#33414e",
+            "titleBar.activeBackground": "#33414e",
+            "titleBar.inactiveBackground": "#33414e",
+            "scrollbar.shadow": "#33414e",
+            "scrollbarSlider.background": "#33414e",
+            "sideBar.background": "#33414e55",
+            "editor.background": "#33414e11"
+        }
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.js": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/lib": true,
+        "cheers/": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/lib": true
+    },
+    "cSpell.words": [
+        "ordernr",
+        "receiptnr",
+        "systek",
+        "testid"
+    ],
+}

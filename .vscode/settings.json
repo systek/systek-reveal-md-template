@@ -1,0 +1,35 @@
+{
+    "window.title": "SYSTEK REVEAL-MD [${activeEditorShort}]",
+    "workbench.colorTheme": "Darktooth",
+    "jest.jestCommandLine": "npm run test -- --watch",
+    "workbench.colorCustomizations": {
+        "[Darktooth]": {
+            "activityBar.background": "#0c3710",
+            "statusBar.background": "#0c3710",
+            "titleBar.activeBackground": "#0c3710",
+            "titleBar.inactiveBackground": "#0c3710",
+            "scrollbar.shadow": "#0c3710",
+            "scrollbarSlider.background": "#0c3710",
+            "sideBar.background": "#0c371055",
+            "editor.background": "#0c371011"
+        }
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.js": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/lib": true,
+        "cheers/": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/lib": true
+    },
+    "editor.formatOnSave": false,
+}
