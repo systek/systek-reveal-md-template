@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { AsyncData, Result } from "@swan-io/boxed";
 import { all, call, put, takeEvery } from "redux-saga/effects";
-import { menu, order } from "./app.actions";
-import { api, MenuDTO, OrderDTO, paths } from "../../api";
+import { menu, moreBeer, order } from "./app.actions";
+import { api, MenuDTO, OrderDTO, paths, __secretOrderUrl } from "../../api";
 import { AppActions, AppActionTypes } from "./types";
 import { UrlParam } from "../../utils/types";
 
@@ -20,20 +20,31 @@ export function* onMenuInit() {
   }
 }
 
+export function* onPayBill() {
+  yield call(api.del, __secretOrderUrl);
+  yield put(moreBeer());
+}
+
 export function* onOrderInit({ placedOrder }: AppActionTypes) {
   yield put(order(AsyncData.Loading()));
-  const orderDto: OrderDTO = yield call(
-    api.post,
-    orderSerializer(paths.order["/"], "123"),
-    placedOrder
-  );
-  yield put(order(AsyncData.Done(Result.Ok(orderDto))));
+  try {
+    const orderDto: OrderDTO = yield call(
+      api.post,
+      orderSerializer(paths.order["/"], "123"),
+      placedOrder
+    );
+
+    yield put(order(AsyncData.Done(Result.Ok(orderDto))));
+  } catch (error) {
+    yield put(order(AsyncData.Done(Result.Error(error))));
+  }
 }
 
 export function* AppSaga() {
   yield all([
     takeEvery(AppActions.MENU_INIT, onMenuInit),
     takeEvery(AppActions.ORDER_INIT, onOrderInit),
+    takeEvery(AppActions.PAY_BILL, onPayBill),
   ]);
 }
 

@@ -1,10 +1,10 @@
 /* eslint-disable testing-library/no-render-in-setup */
-import { DeepPartial } from "redux";
-import { AsyncData, Result } from "@swan-io/boxed";
+import { Result } from "@swan-io/boxed";
 import { render as testRender, screen } from "@testing-library/react";
+import { DeepPartial } from "redux";
+import { OrderDTO } from "../../api";
 import Served from "./Served";
 import { Props, TestId } from "./types";
-import { OrderDTO } from "../../api";
 describe("Served Component", () => {
   let props: DeepPartial<Props>;
   const setup = (extend: DeepPartial<Props> = {}) =>
@@ -30,7 +30,7 @@ describe("Served Component", () => {
     it("should render served order", () => {
       expect(screen.getByTestId(TestId.ok)).toBeInTheDocument();
       expect(screen.getByTestId(TestId.ok)?.textContent).toContain(
-        "Here's your 3 ipas and your 2 lagers, sir"
+        "Here's your 3 ipa, 2 lager & 0 porter, sir"
       );
     });
     it("should render no error message", () =>

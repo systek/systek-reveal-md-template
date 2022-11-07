@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export declare module Storage {
   export type Set = <T>(key: string, val: T) => Promise<T>;
@@ -28,6 +27,14 @@ export const remove: Storage.Remove = (key: string) => {
 };
 
 export const get: Storage.Get = <T>(key: string, or?: T): any =>
-  asPromised(() =>
-    window?.localStorage?.getItem(key) ? window?.localStorage?.getItem(key) : or
-  );
+  asPromised(() => {
+    return window?.localStorage?.getItem(key)
+      ? window?.localStorage?.getItem(key)
+      : or;
+  }).then((t) => {
+    try {
+      return JSON.parse(t as any);
+    } catch (error) {
+      return t;
+    }
+  });

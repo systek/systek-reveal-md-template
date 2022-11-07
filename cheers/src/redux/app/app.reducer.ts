@@ -13,7 +13,14 @@ const appReducer = reducerForProducers<AppState, AppActionTypes, AppActions>(
     [AppActions.MENU_INIT]: passReducer,
     [AppActions.MENU]: writeToDraft("menu"),
     [AppActions.ORDER_INIT]: passReducer,
+
     [AppActions.ORDER]: writeToDraft("order"),
+    [AppActions.ORDER_MORE_BEER]: (draft) => {
+      draft.order = AsyncData.NotAsked();
+    },
+    [AppActions.PAY_BILL]: (draft) => {
+      draft.order = AsyncData.NotAsked();
+    },
   }
 );
 

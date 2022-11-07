@@ -53,7 +53,8 @@
     },
     "jest": {
         "collectCoverageFrom": [
-            "src/**/{!(_mock_),}/*"
+            "src/**/{!(_mock_),}/*",
+            "!src/api/storage.ts"
         ]
     },
     "devDependencies": {

@@ -1,7 +1,7 @@
 import { build } from "../utils/path.utils";
 import { asUrlParam } from "../utils/path.utils";
 import { UrlParam } from "../utils/types";
-
+export const __secretOrderUrl = "/order/123";
 export const paths = {
   menu: build("/", "menu"),
   order: {

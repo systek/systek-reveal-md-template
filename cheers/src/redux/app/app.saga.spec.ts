@@ -1,12 +1,17 @@
-/* eslint-disable @typescript-eslint/no-explicit-any * /
-/* eslint-disable no-return-assign */
 import { AsyncData, Result } from "@swan-io/boxed";
 import { expectSaga, testSaga } from "redux-saga-test-plan";
 import { call } from "redux-saga/effects";
-import { api, MenuDTO, OrderDTO, paths, PlacedOrder } from "../../api";
-import { menuInit, menu, order, orderInit } from "./app.actions";
+import {
+  api,
+  MenuDTO,
+  OrderDTO,
+  paths,
+  PlacedOrder,
+  __secretOrderUrl,
+} from "../../api";
+import { menu, menuInit, moreBeer, order, orderInit } from "./app.actions";
 import appReducer, { initialState } from "./app.reducer";
-import AppSaga, { onMenuInit, onOrderInit } from "./app.saga";
+import AppSaga, { onMenuInit, onOrderInit, onPayBill } from "./app.saga";
 
 const menuDto: MenuDTO = { ipa: 20, lager: 30, porter: 40 };
 const placedOrder: PlacedOrder = { porter: 1 };
@@ -15,7 +20,7 @@ const orderDto = {
   cost: 40,
 } as OrderDTO;
 
-const serializedOrderUrl = "/order/123";
+const serializedOrderUrl = __secretOrderUrl;
 describe("app saga", () => {
   describe(`onMenuInit`, () => {
     it("should fetch menu and put to state", () => {
@@ -32,15 +37,45 @@ describe("app saga", () => {
   });
 
   describe(`onOrderInit`, () => {
-    it("should fetch menu and put to state", () => {
-      testSaga(onOrderInit, orderInit(placedOrder))
+    describe("success", () => {
+      it("should fetch menu and put to state", () => {
+        testSaga(onOrderInit, orderInit(placedOrder))
+          .next()
+          .put(order(AsyncData.Loading()))
+          .next()
+          .call(api.post, serializedOrderUrl, placedOrder)
+          .next(orderDto)
+          .put(order(AsyncData.Done(Result.Ok(orderDto))))
+          .next()
+          .isDone();
+      });
+    });
+
+    describe("fails", () => {
+      const rejectionMessage = "We do not have ipa";
+      it("should fetch menu and put to state", () => {
+        testSaga(onOrderInit, orderInit(placedOrder))
+          .next()
+          .put(order(AsyncData.Loading()))
+          .next()
+          .call(api.post, serializedOrderUrl, placedOrder)
+          .throw(rejectionMessage as any)
+          .put(order(AsyncData.Done(Result.Error(rejectionMessage))))
+          .next()
+          .isDone();
+      });
+    });
+  });
+
+  describe(`onPayBilllInit`, () => {
+    it("should fetch receipt and reset state", () => {
+      testSaga(onPayBill)
         .next()
-        .put(order(AsyncData.Loading()))
+        .call(api.del, serializedOrderUrl)
         .next()
-        .call(api.post, serializedOrderUrl, placedOrder)
-        .next(orderDto)
-        .put(order(AsyncData.Done(Result.Ok(orderDto))))
+        .put(moreBeer())
         .next()
+
         .isDone();
     });
   });

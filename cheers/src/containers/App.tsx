@@ -10,7 +10,10 @@ import "../style/main.scss";
 import { DispatchAction, DispatchProps, StateProps } from "./types";
 
 export type Props = CustomerProps & { init: DispatchAction<void> };
-const AppContainer = ({ ...props }: Props) => {
+export enum TestId {
+  customer = "app-customer",
+}
+export const AppContainer = ({ ...props }: Props) => {
   useEffect(() => {
     if (!!props.init && props.menu.isNotAsked()) {
       props.init();
@@ -18,7 +21,7 @@ const AppContainer = ({ ...props }: Props) => {
   }, [props]);
   return (
     <div className="App">
-      <Customer {...props} />
+      <Customer {...{ "data-testid": TestId.customer, ...props }} />;
     </div>
   );
 };
@@ -26,6 +29,8 @@ export const mapDispatchToProps = (
   dispatch: Dispatch
 ): DispatchProps<Props> => ({
   orderAction: bindActionCreators(appActions.orderInit, dispatch),
+  moreBeer: bindActionCreators(appActions.moreBeer, dispatch),
+  payBill: bindActionCreators(appActions.payBill, dispatch),
   init: bindActionCreators(appActions.menuInit, dispatch),
 });
 

@@ -1,11 +1,24 @@
+/* eslint-disable testing-library/no-render-in-setup */
 import { MockUtil } from "../../gist/jest.utils";
-import { Props } from "../components/Customer";
-import { ApplicationState } from "../redux";
-import * as appSelectors from "../redux/app/app.selectors";
-import { AppActions, initialState } from "../redux/app";
-import { mapDispatchToProps, mapStateToProps } from "./App";
 
-jest.mock("../redux/app/app.selectors");
+import { render as testRender, screen } from "@testing-library/react";
+import { DeepPartial } from "redux";
+import { ApplicationState } from "../redux";
+import { AppActions, AppActionTypes, initialState } from "../redux/app";
+import * as appSelectors from "../redux/app/app.selectors";
+import {
+  AppContainer,
+  mapDispatchToProps,
+  mapStateToProps,
+  Props,
+  TestId,
+} from "./App";
+import { AsyncData } from "@swan-io/boxed";
+import { shape } from "../api/_mock_/test.utils";
+jest.mock("../redux/app/app.selectors").mock("../components/Customer", () => ({
+  __esModule: true,
+  default: (props: any) => <div data-testid={props["data-testid"]}></div>,
+}));
 
 const mocks = MockUtil<typeof appSelectors>(jest).requireMocks(
   "../redux/app/app.selectors"
@@ -46,6 +59,8 @@ describe("App Container", () => {
     it("has assigned values", () => {
       expect(Object.keys(mapDispatchToProps(jest.fn()))).toEqual([
         "orderAction",
+        "moreBeer",
+        "payBill",
         "init",
       ]);
     });
@@ -65,18 +80,45 @@ describe("App Container", () => {
       });
     });
 
-    describe("init action", () => {
-      beforeEach(() => {
-        dispatch = jest.fn();
-        (mapDispatchToProps(dispatch) as any).init();
-      });
-
-      it("dispatches menu init", () => {
-        expect(dispatch).toHaveBeenCalledTimes(1);
-        expect(dispatch).toBeCalledWith({
-          type: AppActions.MENU_INIT,
+    describe.each([
+      ["init", { type: AppActions.MENU_INIT }],
+      ["moreBeer", { type: AppActions.ORDER_MORE_BEER }],
+      ["orderAction", { type: AppActions.ORDER_INIT }],
+      ["payBill", { type: AppActions.PAY_BILL }],
+    ] as Array<[keyof Props, AppActionTypes]>)(
+      "when action %s is called",
+      (action, expected) => {
+        beforeEach(() => {
+          dispatch = jest.fn();
+          (mapDispatchToProps(dispatch) as any)[action]();
         });
-      });
+        it(`should dispatch actionType ${shape(expected)}`, () => {
+          expect(dispatch).toHaveBeenCalledTimes(1);
+          expect(dispatch).toBeCalledWith(expected);
+        });
+      }
+    );
+  });
+
+  describe("AppContainer", () => {
+    let props: DeepPartial<Props>;
+    const setup = (extend: DeepPartial<Props> = {}) =>
+      (props = {
+        ...{ init: jest.fn(), menu: AsyncData.NotAsked() },
+        ...props,
+        ...extend,
+      } as Props);
+
+    const render = () => testRender(<AppContainer {...(props as Props)} />);
+    beforeEach(() => {
+      setup();
+      render();
     });
+
+    it("should render Customer Component", () =>
+      expect(screen.getByTestId(TestId.customer)).toBeInTheDocument());
+
+    it("should run init when rendered", () =>
+      expect(props.init).toHaveBeenCalledTimes(1));
   });
 });
