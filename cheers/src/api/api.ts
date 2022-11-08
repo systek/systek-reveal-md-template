@@ -17,6 +17,8 @@ export const menu: MenuDTO = {
   porter: 120,
 };
 
+export const getMenu = () => menu;
+
 export const del = async (url: string): Promise<RequestResponse<void>> =>
   storage.remove(url);
 

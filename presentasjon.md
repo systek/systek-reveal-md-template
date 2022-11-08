@@ -32,12 +32,37 @@ No strict approach when I am testing, but I guess I am closer to BDD when develo
 
 ### The why? 
 
-* Why wait 
-* Why hesitate
+* Hesitation
+* Stress / time traps
+* Know how
+
+Notes:
+hard to get stared
+ever change - new frameworks, new domain etc
+maintain even more code
 
 ---
 
-## Documentation
+* JsTestDriver
+* Jasmine
+* Mocha
+* Karma
+* Buster.JS
+* Sinon
+* ...
+
+---
+## JEST
+---
+
+## Upsides
+
+* Documentation
+* Discover errors
+* Refactoring
+* Robustness
+* Clean code
+* Proves features
 
 ----
 
@@ -57,52 +82,75 @@ export const confusingFunctionName = (
 ----
 
 ```ts
-describe.each([
-    ["", undefined as any, ""],
-    ["", {}, ""],
-    ["", { animal: "Fox" }, ""],
-    ["{{animal}}", { animal: "Fox" }, "Fox"],
-    [
-      "The {{ animal }} jumps over the {{ object }}",
-      { animal: "Fox", object: "Brook" },
-      "The Fox jumps over the Brook",
-    ],
-    [
-      "The {{ animal }} jumps over the {{ object }}",
-      { animal: "Hare", object: "Fox" },
-      "The Hare jumps over the Fox",
-    ],
-  ] as Array<[string, Record<string, string | number>, string]>)(
-    'with base "%s" and data %p',
-    (base, data, expected) => {
-      it(`confusingFunctionName should produce "${expected}"`, () =>
-        expect(confusingFunctionName(base as any, data as any)).toBe(expected));
-    }
-  );
-```
+describe("test", () => {
+  const base = "The {{ animal }} jumps over the {{ object }}";
+  const data = { animal: "Hare", object: "Fox" };
+  const expected = "The Hare jumps over the Fox";
 
+  describe(`confusingFunctionName(\n\t${base},\n\t${shape(data)})`, () => {
+    it(`should return "${expected}"`, () =>
+      expect(confusingFunctionName(base, data)).toBe(expected));
+  });
+});
+
+```
 
 ----
 
 ```bash
-with base "" and data undefined
-      ✓ confusingFunctionName should produce "" (1 ms)
-    with base "" and data {}
-      ✓ confusingFunctionName should produce ""
-    with base "" and data {"animal": "Fox"}
-      ✓ confusingFunctionName should produce ""
-    with base "{{animal}}" and data {"animal": "Fox"}
-      ✓ confusingFunctionName should produce "Fox" (1 ms)
-    with base "The {{ animal }} jumps over the {{ object }}" and data {"animal": "Fox", "object": "Brook"}
-      ✓ confusingFunctionName should produce "The Fox jumps over the Brook"
-    with base "The {{ animal }} jumps over the {{ object }}" and data {"animal": "Hare", "object": "Fox"}
-      ✓ confusingFunctionName should produce "The Hare jumps over the Fox"
+ test
+    confusingFunctionName(
+	The {{ animal }} jumps over the {{ object }},
+	{"animal":"Hare","object":"Fox"})
+      ✓ should return "The Hare jumps over the Fox"
 
 ```
 
 ---
 
 ###  The Edges (each)
+
+----
+
+```ts
+describe("string utils", () => {
+  describe.each([
+    [undefined, ""],
+    [null, ""],
+    [1, ""],
+    [false, ""],
+    ["", ""],
+    ["string", "String"],
+    ["string swing", "String swing"],
+  ] as Array<[string, string]>)("capitalize(%s)", (props, expected) => {
+    it(`should return "${expected}"`, () =>
+      expect(capitalize(props)).toBe(expected));
+  });
+});
+
+
+```
+
+----
+
+```bash
+ string utils
+    capitalize(undefined)
+      ✓ should return ""
+    capitalize(null)
+      ✓ should return ""
+    capitalize(1)
+      ✓ should return ""
+    capitalize(false)
+      ✓ should return ""
+    capitalize()
+      ✓ should return ""
+    capitalize(string)
+      ✓ should return "String" (1 ms)
+    capitalize(string swing)
+      ✓ should return "String swing"
+
+```
 
 ---
 
@@ -114,17 +162,12 @@ with base "" and data undefined
 
 ----
 
- ... hide away mock data
+```js
+/* istanbul ignore file|next| */
 
-----
+``` 
 
-...  create mock-implementations
-
-----
-
-`/* istanbul ignore file|next| */` 
-
-or 
+  || 
 
 ```json
     "jest": {
@@ -134,9 +177,7 @@ or
     }
 ```
 
-to hide from coverage
-
----
+hides from coverage
 
 
 ---
@@ -149,7 +190,7 @@ to hide from coverage
 * _react-create-app_ 
 * _@testing-library/react_ & _@testing-library/jest-dom_
     *  _enzyme_  no longer maintained
-* _redux-saga-test-plan_
+
 * _@swan-io/boxed_
 
 ----
@@ -163,13 +204,21 @@ to hide from coverage
 
 ### Containers
 
-as components + testing og data/action-mapping
+* like components
+* testing og data/action-mapping
 
 ----
 
 ### Selectors
-
+    TDD + .each
+    be aware of createSelector
 
 ----
 
 ### Saga
+
+* _redux-saga-test-plan_
+
+----
+
+### Api / Utilities
