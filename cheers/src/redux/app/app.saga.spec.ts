@@ -67,7 +67,7 @@ describe("app saga", () => {
     });
   });
 
-  describe(`onPayBilllInit`, () => {
+  describe(`onPayBillInit`, () => {
     it("should fetch receipt and reset state", () => {
       testSaga(onPayBill)
         .next()

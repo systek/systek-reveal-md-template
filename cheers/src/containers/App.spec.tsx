@@ -15,12 +15,13 @@ import {
 } from "./App";
 import { AsyncData } from "@swan-io/boxed";
 import { shape } from "../api/_mock_/test.utils";
+
 jest.mock("../redux/app/app.selectors").mock("../components/Customer", () => ({
   __esModule: true,
   default: (props: any) => <div data-testid={props["data-testid"]}></div>,
 }));
 
-const mocks = MockUtil<typeof appSelectors>(jest).requireMocks(
+const mocks = MockUtil<typeof appSelectors>(jest).requireMock(
   "../redux/app/app.selectors"
 );
 

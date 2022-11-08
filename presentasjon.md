@@ -210,8 +210,10 @@ hides from coverage
 ----
 
 ### Selectors
-    TDD + .each
-    be aware of createSelector
+
+* TDD
+* _describe.each_
+* mocks
 
 ----
 

@@ -29,9 +29,7 @@ describe("Customer Component", () => {
   beforeEach(setup);
 
   describe("before order is placed", () => {
-    beforeEach(() => {
-      render();
-    });
+    beforeEach(() => render());
 
     describe("menu", () => {
       describe("before loaded", () => {

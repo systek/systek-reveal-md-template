@@ -4,14 +4,13 @@ import { MenuDTO } from "../../api";
 import { capitalize } from "../../utils/string";
 import { Props, TestId } from "./types";
 
-const Menu = ({ menu }: Pick<Props, "menu">) => {
-  const price = (key: string, val: string) => (
-    <>
-      {capitalize(key)}: <span>{val},-</span>
-    </>
-  );
-
-  return Option.fromNullable(menu)
+const price = (key: string, val: string) => (
+  <>
+    {capitalize(key)}: <span>{val},-</span>
+  </>
+);
+const Menu = ({ menu }: Pick<Props, "menu">) =>
+  Option.fromNullable(menu)
     .map((it) => (it.isDone() ? it.get() : undefined))
     .flatMap((it) =>
       Option.fromNullable(it).map((itt) => (itt.isOk() ? itt.value : {}))
@@ -28,5 +27,4 @@ const Menu = ({ menu }: Pick<Props, "menu">) => {
       </section>
     ))
     .mapError(() => <></>).value;
-};
 export default Menu;
