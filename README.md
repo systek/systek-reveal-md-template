@@ -17,5 +17,3 @@ Lykke til på med foredraget!
 
 
 ## //TODO
-
-lage en _start.cmd_ for windows entusiaster
