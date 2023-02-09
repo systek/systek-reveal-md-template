@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/systek/systek-reveal-md-template#readme",
   "dependencies": {
-    "reveal-md": "^3.0.4"
+    "reveal-md": "^5.3.4"
   }
 }
