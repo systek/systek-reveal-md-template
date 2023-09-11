@@ -23,9 +23,9 @@
   },
   "homepage": "https://github.com/systek/systek-reveal-md-template#readme",
   "dependencies": {
-    "reveal-md": "^5.3.4"
+    "reveal-md": "^5.5.1"
   },
   "volta": {
-    "node": "18.7.0"
+    "node": "20.3.0"
   }
 }
