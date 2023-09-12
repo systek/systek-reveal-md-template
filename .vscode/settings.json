@@ -1,7 +1,7 @@
 {
     "window.title": "SYSTEK REVEAL-MD [${activeEditorShort}]",
     "workbench.colorTheme": "Darktooth",
-    "jest.jestCommandLine": "npm run test -- --watch",
+     
     "workbench.colorCustomizations": {
         "[Darktooth]": {
             "activityBar.background": "#0c3710",
@@ -31,5 +31,6 @@
         "**/*.code-search": true,
         "**/lib": true
     },
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true
+
 }

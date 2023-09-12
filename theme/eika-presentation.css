@@ -1,0 +1,130 @@
+/**
+
+- Black theme for reveal.js.
+-
+- Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+  */
+@import url(/\_assets/theme/systek-night.css);
+
+:root {
+  --r-main-font-size: 28px;
+}
+
+.reveal h1,
+.reveal h2 {
+  color: var(--systek-green-extra-light);
+}
+
+.eikalogo {
+  height: 50%;
+  width: 50%;
+}
+
+sub {
+  font-size: 0.8rem !important;
+}
+
+.footnote {
+  color: var(--r-link-color-hover);
+  font-size: 0.9rem !important;
+}
+
+sub.footnote {
+  position: fixed;
+  left: 0;
+  right: 1em;
+  width: 100%;
+  text-align: left;
+  vertical-align: baseline;
+  border-top: 1px dotted var(--r-link-color);
+}
+
+.mt {
+  margin-top: var(--mt);
+}
+
+.ml {
+    margin-left: var(--ml) !important;
+  }
+
+.fs {
+  font-size: var(--fs);
+}
+
+blockquote p{
+    padding: 20px;
+}
+blockquote,
+.leftify {
+  text-align: left !important;
+}
+
+.reveal dl {
+  display: flex;
+  flex-wrap: wrap;
+}
+.reveal dt {
+  width: 45%;
+}
+.reveal dt::before,
+.reveal ul li::before {
+  background-image: url(/\_assets/img/systek-transparent.png);
+  background-size: 0.8rem 1rem;
+  display: inline-block;
+  background-repeat: no-repeat;
+  width: 1.5rem;
+  height: 1rem;
+  content: "";
+}
+
+.reveal dd {
+  margin-left: auto;
+  width: 55%;
+}
+
+.reveal .responsibilities dt {
+  color: var(--systek-green-dark);
+}
+
+.reveal ul {
+  display: block;
+  list-style: none;
+  margin: 0;
+
+  list-style-position: outside;
+}
+
+.reveal ul ul li {
+  list-style: none;
+
+  list-style-position: outside;
+  vertical-align: middle;
+}
+.reveal ul ul li::before {
+  background-image: none;
+  content: "▶";
+  font-size: 0.9rem;
+  color: var(--systek-green-dark);
+  vertical-align: middle;
+}
+
+.reveal ul.leftify i {
+  font-family: "Times New Roman", Times, serif;
+  color: var(--systek-green-light);
+}
+
+.copy {
+  bottom: 20px;
+  position: absolute;
+  left: auto;
+  right: auto;
+  width: 100%;
+}
+
+.reveal strong {
+  color: var(--systek-green-dark);
+}
+
+.reveal code {
+  color: var(--r-link-color);
+}

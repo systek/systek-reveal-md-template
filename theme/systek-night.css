@@ -19,14 +19,18 @@ section.has-light-background h6 {
  * GLOBAL STYLES
  *********************************************/
 :root {
+  --systek-green-dark: #215c5c;
+  --systek-green-light: #4bbfa9;
+  --systek-green-extra-light: #c9d9d9;
+
   --r-background-color: #111;
   --r-main-font: Open Sans, sans-serif;
   --r-main-font-size: 40px;
-  --r-main-color: #eee;
+  --r-main-color: var(--systek-green-extra-light);
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
   --r-heading-font: Montserrat, Impact, sans-serif;
-  --r-heading-color: #eee;
+  --r-heading-color: var(--systek-green-light);
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: -0.03em;
   --r-heading-text-transform: none;
@@ -42,9 +46,7 @@ section.has-light-background h6 {
   --r-link-color-dark: #d08a1d;
   --r-link-color-hover: #f3d7ac;
   --r-selection-background-color: #e7ad52;
-  --r-selection-color: #fff;
-  --systek-green-dark: #215c5c;
-  --systek-green-light: #c9d9d9;
+  --r-selection-color: var(--systek-green-extra-light);
 }
 
 .reveal-viewport {
@@ -147,7 +149,7 @@ section.has-light-background h6 {
   max-height: 95%;
   border-radius: 10px;
   border: solid 2px var(--systek-green-dark);
-  box-shadow: 0px 1px 3px var(--systek-green-light);
+  box-shadow: 0px 1px 3px var(--systek-green-extra-light);
 }
 
 .reveal strong,
